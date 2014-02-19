@@ -1,52 +1,45 @@
-var log = new Log();
+/* jshint indent: false */
+
+'use strict';
 
 var conferenceDao = require('/dao/conferenceDao.js');
 
-var postConference = function(req,res, session){
+var postConference = function(req, res) {
     var conference = req.getContent();
-    if (typeof conference != 'object') {
-        res.status = 400;
-    } else {
-        if (!conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.status) {
-            res.status = 400;
-            res.contentType = 'application/json';
-            res.content = {
-                message: 'Conference should contain name, location, start date, end date and status'
-            };
-        } else {
-            var result = conferenceDao.createConference(conference);
-            res.status=200;
-            res.contentType = 'application/json';
-            res.content = result;
-        }
-    }
-}
 
-var putConference = function(req,res, session){
+    if (!conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.logo) {
+        res.status = 400;
+        res.contentType = 'application/json';
+        res.content = {
+            message: 'Conference should contain name, location, start date, end date and status'
+        };
+    } else {
+        conferenceDao.createConference(conference);
+        res.status = 200;
+    }
+};
+
+var putConference = function(req, res) {
     var conference = req.getContent();
-    if (typeof conference != 'object') {
-        res.status = 400;
-    } else {
-        if (!conference.id || !conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.status) {
-            res.status = 400;
-            res.contentType = 'application/json';
-            res.content = {
-                message: 'Conference should contain id, name, location, start date, end date and status'
-            };
-        } else {
-            var result = conferenceDao.updateConference(conference);
-            res.status=200;
-            res.contentType = 'application/json';
-            res.content = result;
-        }
-    }
-}
 
-var getConference = function(req,res, session){
+    if (!conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.logo) {
+        res.status = 400;
+        res.contentType = 'application/json';
+        res.content = {
+            message: 'Conference should contain id, name, location, start date, end date and status'
+        };
+    } else {
+        conferenceDao.updateConference(conference, Number(req._params.id));
+        res.status = 200;
+    }
+};
+
+var getConference = function(req, res) {
     var conferenceId = req._params.id;
-    if(conferenceId != null){
+    if (conferenceId) {
         var result = conferenceDao.getConferenceByConferenceId(conferenceId);
-        if(result != null) {
+
+        if (result) {
             res.status = 200;
             res.contentType = 'application/json';
             res.content = result;
@@ -58,19 +51,20 @@ var getConference = function(req,res, session){
             };
         }
     }
-}
+};
 
-var getAllConferences = function(req,res,session){
+var getAllConferences = function(req, res) {
     res.status = 200;
     res.contentType = 'application/json';
     res.content = conferenceDao.getAllConferences();
 };
 
-var getActiveConferences = function(req,res,session){
+var getActiveConferences = function(req, res) {
     var status = req._params.status;
-    if(status != null && status == 1){
+
+    if (status && status === 1) {
         var result = conferenceDao.getAllActiveConferences();
-        if(result != null){
+        if (result) {
             res.status = 200;
             res.contentType = 'application/json';
             res.content = conferenceDao.getAllActiveConferences();
@@ -82,4 +76,4 @@ var getActiveConferences = function(req,res,session){
             };
         }
     }
-}
+};
