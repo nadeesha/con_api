@@ -1,0 +1,37 @@
+<%
+
+var pipe = require('pipe');
+var log = new Log();
+var router = require('/extensions/universal/simpleRouter.js');
+var caramelRenderer = require('/extensions/universal/caramelRenderer.js');
+var basicAuth = require('/extensions/universal/basicAuth.js');
+var errHandler = require('/extensions/universal/simpleErrorHandler.js');
+errHandler.environment = 'dev';
+
+<!--Routers-->
+var conferenceRouter = require('/routes/conferenceRouter.js');
+var sponsorRouter = require('/routes/sponsorRouter.js');
+
+pipe.pipes.plug(require('/extensions/universal/simpleTenantParser.js'));
+pipe.pipes.plug(router);
+pipe.pipes.plug(errHandler);
+
+<!--Conference Router-->
+router.app.post('/:context/conferences', conferenceRouter.postConference);
+router.app.put('/:context/conferences/:id', conferenceRouter.putConference);
+router.app.get('/:context/conferences/:id', conferenceRouter.getConference);
+router.app.get('/:context/conferences', conferenceRouter.getAllConferences);
+router.app.get('/:context/conferences/status/:status', conferenceRouter.getActiveConferences);
+
+<!--Sponsor Router-->
+router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
+router.app.put('/:context/sponsors/:id/', sponsorRouter.putSponsor);
+router.app.get('/:context/sponsors/:id', sponsorRouter.getSponsor);
+router.app.get('/:context/sponsors', sponsorRouter.getAllSponsors);
+router.app.get('/:context/sponsors/status/:status', sponsorRouter.getAllActiveSponsors);
+router.app.get('/:context/sponsors/confId/:confId', sponsorRouter.getAllActiveSponsorsByConference);
+
+
+pipe.pipes.handle(request,response,session);
+
+%>
