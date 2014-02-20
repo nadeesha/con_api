@@ -29,14 +29,16 @@ var createConference = function(conf) {
 
 var updateConference = function(conf, id) {
 
-    db.query('UPDATE tbl_conference SET ' +
+    var query = 'UPDATE tbl_conference SET ' +
         'name = ' + utils.parseValue(conf.name) + ', ' +
         'location = ' + utils.parseValue(conf.location) + ', ' +
         'startDate = ' + utils.parseValue(conf.startDate) + ', ' +
         'endDate = ' + utils.parseValue(conf.endDate) + ', ' +
-        'logo = ' + utils.parseValue(conf.logo) + ' ' +
+        'logo = ' + utils.parseValue(conf.logo) + ', ' +
         'status = ' + utils.parseValue(conf.status) + ' ' + // past conference need to deactivate
-        'WHERE id = ' + utils.parseValue(id));
+        'WHERE id = ' + utils.parseValue(id);
+
+    db.query(query);
 
     return;
 };
