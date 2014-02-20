@@ -5,13 +5,15 @@
 var conferenceDao = require('/dao/conferenceDao.js');
 
 var postConference = function(req, res) {
-    var conference = req.getContent();
+    var conference = JSON.parse(req.getContent());
+
+    log.info(req.getContent());
 
     if (!conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.logo) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
-            message: 'Conference should contain name, location, start date, end date and status'
+            message: 'Conference should contain name, location, start date, end date and logo'
         };
     } else {
         conferenceDao.createConference(conference);
@@ -20,13 +22,13 @@ var postConference = function(req, res) {
 };
 
 var putConference = function(req, res) {
-    var conference = req.getContent();
+    var conference = JSON.parse(req.getContent());
 
     if (!conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.logo) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
-            message: 'Conference should contain id, name, location, start date, end date and status'
+            message: 'Conference should contain id, name, location, start date, end date and logo'
         };
     } else {
         conferenceDao.updateConference(conference, Number(req._params.id));
