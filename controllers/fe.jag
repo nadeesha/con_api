@@ -34,6 +34,14 @@ router.app.get('/:context/sponsors', sponsorRouter.getAllSponsors);
 router.app.get('/:context/sponsors/status/:status', sponsorRouter.getAllActiveSponsors);
 router.app.get('/:context/sponsors/confId/:confId', sponsorRouter.getAllActiveSponsorsByConference);
 
+// Booth Router
+router.app.post('/:context/booths', boothRouter.postBooth);
+router.app.put('/:context/booths/:id', boothRouter.putBooth);
+router.app.get('/:context/booths/:id', boothRouter.getBooth);
+router.app.get('/:context/booths', boothRouter.getAllBooths);
+router.app.get('/:context/booths/status/:status', boothRouter.getAllActiveBooths);
+router.app.get('/:context/booths/confId/:confId', boothRouter.getAllActiveBoothByConference);
+
 pipe.pipes.handle(request,response,session);
 
 %>

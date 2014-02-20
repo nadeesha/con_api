@@ -35,27 +35,32 @@ var updateConference = function(conf, id) {
         'startDate = ' + utils.parseValue(conf.startDate) + ', ' +
         'endDate = ' + utils.parseValue(conf.endDate) + ', ' +
         'logo = ' + utils.parseValue(conf.logo) + ' ' +
+        'status = ' + utils.parseValue(conf.status) + ' ' + // past conference need to deactivate
         'WHERE id = ' + utils.parseValue(id));
 
     return;
 };
 
-var getConferenceByConferenceId = function(conferenceId) {
+var getConferenceByConferenceId = function (conferenceId) {
     var result = db.query('SELECT id, name, location, ' +
-        'UNIX_TIMESTAMP(startDate)*1000 AS startDate, ' +
-        'UNIX_TIMESTAMP(endDate)*1000 AS endDate, ' +
-        'logo FROM tbl_conference WHERE id = ' +
+        'DATE_FORMAT(startDate, \'%Y-%m-%d\') AS startDate, ' +
+        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' +
+        'logo, status FROM tbl_conference WHERE id = ' +
         utils.parseValue(conferenceId));
 
     return result;
 };
 
-var getAllConferences = function() {
-    var result = db.query('SELECT * FROM tbl_conference');
+var getAllConferences = function () {
+    var result = db.query('SELECT id, name, location, ' +
+        'DATE_FORMAT(startDate, \'%Y-%m-%d\') AS startDate, ' +
+        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' + 'logo, status FROM tbl_conference');
     return result;
 };
 
-var getAllActiveConferences = function() {
-    var result = db.query('SELECT * FROM tbl_conference WHERE status = 1');
+var getAllActiveConferences = function () {
+    var result = db.query('SELECT id, name, location, ' +
+        'DATE_FORMAT(startDate, \'%Y-%m-%d\') AS startDate, ' +
+        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' + 'logo, status FROM tbl_conference WHERE status = 1');
     return result;
 };

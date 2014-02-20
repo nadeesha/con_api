@@ -1,12 +1,12 @@
-var log = new Log();
+/* jshint indent: false */
+
+'use strict';
 
 var sponsorDao = require('/dao/sponsorDao.js');
 
-var postSponsor = function(req,res, session){
+var postSponsor = function(req,res){
     var sponsor = req.getContent();
-    if (typeof sponsor != 'object') {
-        res.status = 400;
-    } else {
+
         if (!sponsor.name || !sponsor.status) {
             res.status = 400;
             res.contentType = 'application/json';
@@ -14,39 +14,32 @@ var postSponsor = function(req,res, session){
                 message: 'Sponsor should contain name and status'
             };
         } else {
-            var result = sponsorDao.createSponsor(sponsor);
             res.status=200;
-            res.contentType = 'application/json';
-            res.content = result;
+            sponsorDao.createSponsor(sponsor);
         }
-    }
 }
 
-var putSponsor = function(req,res, session){
+var putSponsor = function(req,res){
     var sponsor = req.getContent();
-    if (typeof sponsor != 'object') {
-        res.status = 400;
-    } else {
-        if (!sponsor.id || !sponsor.name || !sponsor.status) {
+
+        if (!sponsor.name || !sponsor.status) {
             res.status = 400;
             res.contentType = 'application/json';
             res.content = {
                 message: 'Sponsor should contain id, name and status'
             };
         } else {
-            var result = sponsorDao.updateSponsor(sponsor);
             res.status=200;
-            res.contentType = 'application/json';
-            res.content = result;
+            sponsorDao.updateSponsor(sponsor, Number(req._params.id));
         }
-    }
 }
 
-var getSponsor = function(req,res, session){
+var getSponsor = function(req,res){
     var sponsorId = req._params.id;
-    if(sponsorId != null){
-        var result = sponsorDao.getSponsorBySponsorId(sponsorId);
-        if(result != null) {
+    if(sponsorId){
+        var result = sponsorDao.getSponsorBySponsorId(Number(sponsorId));
+
+        if(result) {
             res.status = 200;
             res.contentType = 'application/json';
             res.content = result;
@@ -60,32 +53,37 @@ var getSponsor = function(req,res, session){
     }
 }
 
-var getAllSponsors = function(req,res, session){
+var getAllSponsors = function(req,res){
     res.status = 200;
     res.contentType = 'application/json';
     res.content = sponsorDao.getAllSponsors();
 }
 
-var getAllActiveSponsors = function(req,res, session){
+var getAllActiveSponsors = function (req, res, session) {
     var status = req._params.status;
-    if(status != null && status == 1){
-        res.status = 200;
-        res.contentType = 'application/json';
-        res.content = sponsorDao.getAllActiveSponsors();
-    } else {
-        res.status = 400;
-        res.contentType = 'application/json';
-        res.content = {
-            message: 'Active Sponsor data not found'
-        };
+    if (status && status === '1') {
+        var result = sponsorDao.getAllActiveSponsors();
+
+        if (result) {
+            res.status = 200;
+            res.contentType = 'application/json';
+            res.content = result;
+        } else {
+            res.status = 400;
+            res.contentType = 'application/json';
+            res.content = {
+                message: 'Active Sponsor data not found'
+            };
+        }
     }
 }
 
-var getAllActiveSponsorsByConference = function(req,res, session){
+var getAllActiveSponsorsByConference = function(req,res){
     var confId = req._params.confId;
-    if(confId != null){
-        var result = sponsorDao.getAllActiveSponsorsByConference(confId);
-        if(result != null){
+    if(confId){
+        var result = sponsorDao.getAllActiveSponsorsByConference(Number(confId));
+
+        if(result){
             res.status = 200;
             res.contentType = 'application/json';
             res.content = result;
@@ -98,3 +96,4 @@ var getAllActiveSponsorsByConference = function(req,res, session){
         }
     }
 }
+

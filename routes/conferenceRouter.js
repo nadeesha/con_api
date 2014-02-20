@@ -37,7 +37,7 @@ var putConference = function(req, res) {
 var getConference = function(req, res) {
     var conferenceId = req._params.id;
     if (conferenceId) {
-        var result = conferenceDao.getConferenceByConferenceId(conferenceId);
+        var result = conferenceDao.getConferenceByConferenceId(Number(conferenceId));
 
         if (result) {
             res.status = 200;
@@ -59,15 +59,15 @@ var getAllConferences = function(req, res) {
     res.content = conferenceDao.getAllConferences();
 };
 
-var getActiveConferences = function(req, res) {
+var getActiveConferences = function (req, res) {
     var status = req._params.status;
 
-    if (status && status === 1) {
+    if (status && status === '1') {
         var result = conferenceDao.getAllActiveConferences();
         if (result) {
             res.status = 200;
             res.contentType = 'application/json';
-            res.content = conferenceDao.getAllActiveConferences();
+            res.content = result;
         } else {
             res.status = 400;
             res.contentType = 'application/json';
