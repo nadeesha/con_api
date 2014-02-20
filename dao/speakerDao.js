@@ -104,7 +104,7 @@ var getAllConferenceSpeakersWithEvent = function (conferenceId) {
         'TRIM(tet.name) AS eventTypeName ' +
         'FROM tbl_speaker ts JOIN tbl_speaker_event tse ON ts.id = tse.speakerId ' +
         'JOIN tbl_event te ON tse.eventId  = te.id JOIN tbl_event_type tet ON te.eventTypeId = tet.id ' +
-        'WHERE tse.conferenceId = ', utils.parseValue(conferenceId));
+        'WHERE tse.conferenceId = '+ utils.parseValue(conferenceId));
 
     return result;
 }

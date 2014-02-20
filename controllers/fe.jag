@@ -15,6 +15,10 @@ var conferenceBoothRouter = require('/routes/conferenceBoothRouter.js');
 var eventTypeRouter = require('/routes/eventTypeRouter.js');
 var videoRouter = require('/routes/videoRouter.js');
 var speakerRouter = require('/routes/speakerRouter.js');
+var speakerEventRouter = require('/routes/speakerEventRouter.js');
+var agendaRouter = require('/routes/agendaRouter.js');
+var trackRouter = require('/routes/trackRouter.js');
+var eventRouter = require('/routes/eventRouter.js');
 
 response.addHeader('Access-Control-Allow-Origin', '*');
 response.addHeader('Access-Control-Allow-Methods',
@@ -94,6 +98,40 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/speakers', speakerRouter.getAllSpeakers);
     router.app.get('/:context/speakers/status/:status', speakerRouter.getAllActiveSpeakers);
     router.app.get('/:context/speakers/confId/:confId', speakerRouter.getAllConferenceSpeakersWithEvent);
+
+    // Speaker Event Router
+    router.app.post('/:context/speakerEvent', speakerEventRouter.postSpeakerEvent);
+    router.app.put('/:context/speakerEvent/:spkrId', speakerEventRouter.putSpeakerEvent);
+    router.app.del('/:context/speakerEvent/:spkrId/:evntId', speakerEventRouter.deleteSpeakerEvent);
+
+    // Agenda Router
+    router.app.post('/:context/agendas', agendaRouter.postAgenda);
+    router.app.put('/:context/agendas/:id', agendaRouter.putAgenda);
+    router.app.del('/:context/agendas/:id', agendaRouter.deleteAgenda);
+    router.app.get('/:context/agendas/:id', agendaRouter.getAgenda);
+    router.app.get('/:context/agendas/:id/:confId', agendaRouter.getAgendaByConferenceWithTracksEventsSpeakers);
+    router.app.get('/:context/agendas/confId1/:confId1', agendaRouter.getAllAgendaByConference);
+    router.app.get('/:context/agendas/confId2/:confId2', agendaRouter.getAllAgendaByConferenceWithTracksEventsSpeakers);
+
+    // Track Router
+    router.app.post('/:context/tracks', trackRouter.postTrack);
+    router.app.put('/:context/tracks/:id', trackRouter.putTrack);
+    router.app.del('/:context/tracks/:id', trackRouter.deleteTrack);
+    router.app.get('/:context/tracks/:id', trackRouter.getTrack);
+    router.app.get('/:context/tracks', trackRouter.getAllTracks);
+    router.app.get('/:context/tracks/:id/:agendId', trackRouter.getTrackByAgendaWithEventsSpeakers);
+    router.app.get('/:context/tracks/agendId/:agendId', trackRouter.getAllTracksByAgendaWithEventsSpeakers);
+
+    // Event Router
+    router.app.post('/:context/events', eventRouter.postEvent);
+    router.app.put('/:context/events/:id', eventRouter.putEvent);
+    router.app.del('/:context/events/:id', eventRouter.deleteEvent);
+    router.app.get('/:context/events/:id', eventRouter.getEvent);
+    router.app.get('/:context/events/:id/withSpkr', eventRouter.getEventByEventIdWithSpekers);
+    router.app.get('/:context/events/trckId1/:trckId1', eventRouter.getAllEventByTrack);
+    router.app.get('/:context/events/eveTypId/:eveTypId', eventRouter.getAllEventByEventTypeWithSpeakers);
+    router.app.get('/:context/events/trckId2/:trckId2', eventRouter.getAllEventByTrackWithEventTypesSpeakers);
+    router.app.get('/:context/events/spkrId/:spkrId', eventRouter.getAllEventBySpeakerWithEventType);
 
     pipe.pipes.handle(request, response, session);
 }

@@ -34,8 +34,8 @@ var updateConferenceBooth = function (conferenceBooth) {
 var getAllActiveConferencesWithBooths = function () {
     var result = db.query('SELECT ' +
         'TRIM(tc.id) AS conferenceId, ' +
-        'TRIM(tc.name), ' +
-        'TRIM(tc.location), ' +
+        'TRIM(tc.name) AS conferenceName, ' +
+        'TRIM(tc.location) AS conferenceLocation, ' +
         'DATE_FORMAT(tc.startDate, \'%Y-%m-%d\') AS conferenceStartDate, ' +
         'DATE_FORMAT(tc.endDate, \'%Y-%m-%d\') AS conferenceEndDate, ' +
         'TRIM(tc.logo) AS conferenceLogo, ' +

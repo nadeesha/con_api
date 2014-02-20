@@ -1,63 +1,168 @@
-var log = new Log();
+/* jshint indent: false */
 
-var db = require('/dao/db.js').db;
+'use strict';
+
+var db = require('./db.js').db;
+var utils = require('./utils.js');
 
 var createEvent = function (event) {
-    var json = JSON.parse(event);
-    var result = db.query("INSERT INTO tbl_event (title, description, venue, fromDateTime, toDateTime, isCrossTrack, " +
-        "eventTypeId, trackId, agendaId, conferenceId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        json.title, json.description, json.venue, json.fromDateTime, json.toDateTime, json.isCrossTrack, json.eventTypeId, json.trackId, json.agendaId, json.conferenceId);
-    db.commit();
-    return result;
+
+    var values = [
+        event.title,
+        event.description,
+        event.venue,
+        event.fromDateTime,
+        event.toDateTime,
+        event.isCrossTrack,
+        event.eventTypeId,
+        event.trackId,
+        event.agendaId,
+        event.conferenceId
+    ];
+
+    utils.parseValues(values);
+
+    var query = 'INSERT INTO tbl_event (title, description, venue, fromDateTime, toDateTime, isCrossTrack, ' +
+        'eventTypeId, trackId, agendaId, conferenceId) VALUES (' + values.toString() + ')';
+
+    db.query(query);
+
+    return;
 }
 
-var updateEvent = function (event) {
-    var json = JSON.parse(event);
-    var result = db.query("UPDATE tbl_event SET title = ?, description = ?, venue = ?, fromDateTime = ?, toDateTime = ?, isCrossTrack = ?, " +
-        "eventTypeId = ?, trackId = ?, agendaId = ?, conferenceId = ? WHERE  id = ?",
-        json.title, json.description, json.venue, json.fromDateTime, json.toDateTime, json.isCrossTrack, json.eventTypeId, json.trackId, json.agendaId, json.conferenceId, json.id);
-    db.commit();
-    return result;
+var updateEvent = function (event, id) {
+
+    db.query('UPDATE tbl_event SET ' +
+        'title = ' + utils.parseValue(event.title) + ', ' +
+        'description = ' + utils.parseValue(event.description) + ', ' +
+        'venue = ' + utils.parseValue(event.venue) + ', ' +
+        'fromDateTime = ' + utils.parseValue(event.fromDateTime) + ', ' +
+        'toDateTime = ' + utils.parseValue(event.toDateTime) + ', ' +
+        'isCrossTrack = ' + utils.parseValue(event.isCrossTrack) + ', ' +
+        'eventTypeId = ' + utils.parseValue(event.eventTypeId) + ', ' +
+        'trackId = ' + utils.parseValue(event.trackId) + ', ' +
+        'agendaId = ' + utils.parseValue(event.agendaId) + ', ' +
+        'conferenceId = ' + utils.parseValue(event.conferenceId) + ' ' +
+        'WHERE  id = ' + utils.parseValue(id));
+
+    return;
 }
 
 var deleteEvent = function (eventId) {
-    var result = db.query("DELETE FROM tbl_event WHERE id = ?", eventId);
-    db.commit();
-    return result;
+    db.query('DELETE FROM tbl_event WHERE id = ' + utils.parseValue(eventId));
+
+    return;
 }
 
 var getEventByEventId = function (eventId) {
-    var result = db.query("SELECT * FROM tbl_event WHERE id = ?", eventId);
+    var result = db.query('SELECT ' +
+        'TRIM(te.id) AS eventId,' +
+        'TRIM(te.title)  AS eventTitle,' +
+        'TRIM(te.description) AS eventDescription,' +
+        'TRIM(te.venue) AS eventVenue,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+        'TRIM(te.isCrossTrack) AS eventIsCrossTrack ' +
+        'FROM tbl_event te WHERE id = ' + utils.parseValue(eventId));
+
     return result;
 }
 
 var getEventByEventIdWithSpekers = function (eventId) {
-    var result = db.query("SELECT * FROM tbl_event te JOIN tbl_speaker_event tse ON te.id = tse.eventId " +
-        "JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE te.id = ?", eventId);
+    var result = db.query('SELECT ' +
+        'TRIM(te.id) AS eventId,' +
+        'TRIM(te.title)  AS eventTitle,' +
+        'TRIM(te.description) AS eventDescription,' +
+        'TRIM(te.venue) AS eventVenue,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+        'TRIM(te.isCrossTrack) AS eventIsCrossTrack,' +
+        'TRIM(ts.id) AS speakerId,' +
+        'TRIM(ts.name) AS speakerName,' +
+        'TRIM(ts.designation) AS speakerDesignation,' +
+        'TRIM(ts.bio) AS speakerBio,' +
+        'TRIM(ts.bioMobile) AS speakerBioMobile,' +
+        'TRIM(ts.photo) AS speakerPhoto ' +
+        'FROM tbl_event te JOIN tbl_speaker_event tse ON te.id = tse.eventId ' +
+        'JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE te.id = ' + utils.parseValue(eventId));
     return result;
 }
 
 var getAllEventByTrack = function (trackId) {
-    var result = db.query("SELECT * FROM tbl_event WHERE trackId = ?", trackId);
+    var result = db.query('SELECT ' +
+        'TRIM(id) AS eventId,' +
+        'TRIM(title)  AS eventTitle,' +
+        'TRIM(description) AS eventDescription,' +
+        'TRIM(venue) AS eventVenue,' +
+        'DATE_FORMAT(fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+        'DATE_FORMAT(toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+        'TRIM(isCrossTrack) AS eventIsCrossTrack ' +
+        'FROM tbl_event WHERE trackId = ' + utils.parseValue(trackId));
     return result;
 }
 
 var getAllEventByEventTypeWithSpeakers = function (eventTypeId) {
-    var result = db.query("SELECT * FROM tbl_event te JOIN tbl_speaker_event tse ON te.id = tse.eventId " +
-        "JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE te.eventTypeId = ?", eventTypeId);
+    var result = db.query('SELECT ' +
+        'TRIM(te.id) AS eventId,' +
+        'TRIM(te.title)  AS eventTitle,' +
+        'TRIM(te.description) AS eventDescription,' +
+        'TRIM(te.venue) AS eventVenue,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+        'TRIM(te.isCrossTrack) AS eventIsCrossTrack,' +
+        'TRIM(ts.id) AS speakerId,' +
+        'TRIM(ts.name) AS speakerName,' +
+        'TRIM(ts.designation) AS speakerDesignation,' +
+        'TRIM(ts.bio) AS speakerBio,' +
+        'TRIM(ts.bioMobile) AS speakerBioMobile,' +
+        'TRIM(ts.photo) AS speakerPhoto ' +
+        'FROM tbl_event te JOIN tbl_speaker_event tse ON te.id = tse.eventId ' +
+        'JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE te.eventTypeId = ' + utils.parseValue(eventTypeId));
     return result;
 }
 
 var getAllEventByTrackWithEventTypesSpeakers = function (trackId) {
-    var result = db.query("SELECT * FROM tbl_event te JOIN tbl_event_type tet ON te.eventTypeId = tet.id " +
-        "JOIN tbl_speaker_event tse ON te.id = tse.eventId " +
-        "JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE te.trackId = ?", trackId);
+    var result = db.query('SELECT ' +
+        'TRIM(te.id) AS eventId,' +
+        'TRIM(te.title)  AS eventTitle,' +
+        'TRIM(te.description) AS eventDescription,' +
+        'TRIM(te.venue) AS eventVenue,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+        'TRIM(te.isCrossTrack) AS eventIsCrossTrack,' +
+        'TRIM(tet.id) AS eventTypeId,' +
+        'TRIM(tet.name) AS eventTypeName,' +
+        'TRIM(ts.id) AS speakerId,' +
+        'TRIM(ts.name) AS speakerName,' +
+        'TRIM(ts.designation) AS speakerDesignation,' +
+        'TRIM(ts.bio) AS speakerBio,' +
+        'TRIM(ts.bioMobile) AS speakerBioMobile,' +
+        'TRIM(ts.photo) AS speakerPhoto ' +
+        'FROM tbl_event te JOIN tbl_event_type tet ON te.eventTypeId = tet.id ' +
+        'JOIN tbl_speaker_event tse ON te.id = tse.eventId ' +
+        'JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE te.trackId = ' + utils.parseValue(trackId));
     return result;
 }
 
 var getAllEventBySpeakerWithEventType = function (speakerId) {
-    var result = db.query("SELECT * FROM tbl_event te JOIN tbl_event_type tet ON te.eventTypeId = tet.id " +
-        "JOIN tbl_speaker_event tse ON te.id = tse.eventId " +
-        "JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE ts.id = ?", speakerId);
+    var result = db.query('SELECT ' +
+        'TRIM(te.id) AS eventId,' +
+        'TRIM(te.title)  AS eventTitle,' +
+        'TRIM(te.description) AS eventDescription,' +
+        'TRIM(te.venue) AS eventVenue,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+        'TRIM(te.isCrossTrack) AS eventIsCrossTrack,' +
+        'TRIM(tet.id) AS eventTypeId,' +
+        'TRIM(tet.name) AS eventTypeName,' +
+        'TRIM(ts.id) AS speakerId,' +
+        'TRIM(ts.name) AS speakerName,' +
+        'TRIM(ts.designation) AS speakerDesignation,' +
+        'TRIM(ts.bio) AS speakerBio,' +
+        'TRIM(ts.bioMobile) AS speakerBioMobile,' +
+        'TRIM(ts.photo) AS speakerPhoto ' +
+        'FROM tbl_event te JOIN tbl_event_type tet ON te.eventTypeId = tet.id ' +
+        'JOIN tbl_speaker_event tse ON te.id = tse.eventId ' +
+        'JOIN tbl_speaker ts ON tse.speakerId = ts.id WHERE ts.id = ' + utils.parseValue(speakerId));
     return result;
 }
