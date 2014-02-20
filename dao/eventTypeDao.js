@@ -1,34 +1,48 @@
-var log = new Log();
+/* jshint indent: false */
 
-var db = require('/dao/db.js').db;
+'use strict';
+
+var db = require('./db.js').db;
+var utils = require('./utils.js');
 
 var createEventType = function (eventType) {
-    var json = JSON.parse(eventType);
-    var result = db.query("INSERT INTO tbl_event_type (name, status) VALUES (?, ?)",
-        json.name, json.status);
-    db.commit();
-    return result;
+
+    var values = [
+        agenda.name,
+        agenda.status
+    ];
+
+    utils.parseValues(values);
+
+    db.query('INSERT INTO tbl_event_type (name, status) VALUES (' + values.toString() + ')');
+
+    return;
 }
 
-var updateEventType = function (eventType) {
-    var json = JSON.parse(eventType);
-    var result = db.query("UPDATE tbl_event_type SET name = ?, status = ? WHERE id =  ?",
-        json.name, json.status, json.id);
-    db.commit();
-    return result;
+var updateEventType = function (eventType, id) {
+
+    db.query('UPDATE tbl_event_type SET ' +
+        'name = ' + utils.parseValue(eventType.name) + ', ' +
+        'status = ' + utils.parseValue(eventType.status) + ' ' +
+        'WHERE id = ' + utils.parseValue(id));
+
+    return;
 }
 
 var getEventTypeByEventTypeId = function (eventTypeId) {
-    var result = db.query("SELECT * FROM tbl_event_type WHERE id = ?", eventTypeId);
+    var result = db.query('SELECT * FROM tbl_event_type WHERE id = '+ utils.parseValue(eventTypeId));
+
     return result;
 }
 
-var getAllEvents = function () {
-    var result = db.query("SELECT * FROM tbl_event_type");
+var getAllEventType = function () {
+    var result = db.query('SELECT * FROM tbl_event_type');
+
     return result;
 }
 
-var getAllActiveEvents = function () {
-    var result = db.query("SELECT * FROM tbl_event_type WHERE status = 1");
+var getAllActiveEventType = function () {
+    var result = db.query('SELECT * FROM tbl_event_type WHERE status = 1');
+
     return result;
 }

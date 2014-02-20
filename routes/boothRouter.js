@@ -3,7 +3,7 @@ var log = new Log();
 var boothDao = require('/dao/boothDao.js');
 
 var postBooth = function (req, res) {
-    var booth = req.getContent();
+    var booth = JSON.parse(req.getContent());
     if (!booth.name || !booth.status) {
         res.status = 400;
         res.contentType = 'application/json';
@@ -17,7 +17,7 @@ var postBooth = function (req, res) {
 }
 
 var putBooth = function (req, res) {
-    var booth = req.getContent();
+    var booth = JSON.parse(req.getContent());
     if (!booth.name || !booth.status) {
         res.status = 400;
         res.contentType = 'application/json';

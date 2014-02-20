@@ -5,7 +5,7 @@
 var sponsorDao = require('/dao/sponsorDao.js');
 
 var postSponsor = function(req,res){
-    var sponsor = req.getContent();
+    var sponsor = JSON.parse(req.getContent());
 
         if (!sponsor.name || !sponsor.status) {
             res.status = 400;
@@ -20,7 +20,7 @@ var postSponsor = function(req,res){
 }
 
 var putSponsor = function(req,res){
-    var sponsor = req.getContent();
+    var sponsor = JSON.parse(req.getContent());
 
         if (!sponsor.name || !sponsor.status) {
             res.status = 400;
@@ -96,4 +96,3 @@ var getAllActiveSponsorsByConference = function(req,res){
         }
     }
 }
-

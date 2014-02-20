@@ -10,52 +10,92 @@ errHandler.environment = 'dev';
 var conferenceRouter = require('/routes/conferenceRouter.js');
 var sponsorRouter = require('/routes/sponsorRouter.js');
 var boothRouter = require('/routes/boothRouter.js');
+var conferenceSponsorRouter = require('/routes/conferenceSponsorRouter.js');
+var conferenceBoothRouter = require('/routes/conferenceBoothRouter.js');
+var eventTypeRouter = require('/routes/eventTypeRouter.js');
+var videoRouter = require('/routes/videoRouter.js');
+var speakerRouter = require('/routes/speakerRouter.js');
 
 response.addHeader('Access-Control-Allow-Origin', '*');
 response.addHeader('Access-Control-Allow-Methods',
-	'HEAD, GET, POST, PUT, DELETE, OPTIONS');
+        'HEAD, GET, POST, PUT, DELETE, OPTIONS');
 response.addHeader('Access-Control-Allow-Headers',
-	'Content-Type, X-Requested-With, Origin, Accept, Authorization, ' +
-	'Content-Range, Content-Disposition, Content-Description');
+        'Content-Type, X-Requested-With, Origin, Accept, Authorization, ' +
+                'Content-Range, Content-Disposition, Content-Description');
 response.addHeader('Access-Control-Allow-Credentials', 'true');
 
 // this is a hack until simpleRouter comes to support options
 if (request.getMethod() === 'OPTIONS') {
-	response.status = 200;
+    response.status = 200;
 } else {
-	pipe.pipes.plug(require('/extensions/universal/simpleTenantParser.js'));
-	pipe.pipes.plug(router);
-	pipe.pipes.plug(errHandler);
+    pipe.pipes.plug(require('/extensions/universal/simpleTenantParser.js'));
+    pipe.pipes.plug(router);
+    pipe.pipes.plug(errHandler);
 
-	// Default Route
-	router.app.get('/', function() {
-		response.status = 200;
-	});
+    // Default Route
+    router.app.get('/', function() {
+        response.status = 200;
+    });
 
-	// Conference Routes
-	router.app.post('/:context/conferences', conferenceRouter.postConference);
-	router.app.put('/:context/conferences/:id', conferenceRouter.putConference);
-	router.app.get('/:context/conferences/:id', conferenceRouter.getConference);
-	router.app.get('/:context/conferences', conferenceRouter.getAllConferences);
-	router.app.get('/:context/conferences/status/:status', conferenceRouter.getActiveConferences);
+    // Conference Routes
+    router.app.post('/:context/conferences', conferenceRouter.postConference);
+    router.app.put('/:context/conferences/:id', conferenceRouter.putConference);
+    router.app.get('/:context/conferences/:id', conferenceRouter.getConference);
+    router.app.get('/:context/conferences', conferenceRouter.getAllConferences);
+    router.app.get('/:context/conferences/status/:status', conferenceRouter.getActiveConferences);
 
-	// Sponsor Routes
-	router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
-	router.app.put('/:context/sponsors/:id/', sponsorRouter.putSponsor);
-	router.app.get('/:context/sponsors/:id', sponsorRouter.getSponsor);
-	router.app.get('/:context/sponsors', sponsorRouter.getAllSponsors);
-	router.app.get('/:context/sponsors/status/:status', sponsorRouter.getAllActiveSponsors);
-	router.app.get('/:context/sponsors/confId/:confId', sponsorRouter.getAllActiveSponsorsByConference);
+    // Sponsor Routes
+    router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
+    router.app.put('/:context/sponsors/:id/', sponsorRouter.putSponsor);
+    router.app.get('/:context/sponsors/:id', sponsorRouter.getSponsor);
+    router.app.get('/:context/sponsors', sponsorRouter.getAllSponsors);
+    router.app.get('/:context/sponsors/status/:status', sponsorRouter.getAllActiveSponsors);
+    router.app.get('/:context/sponsors/confId/:confId', sponsorRouter.getAllActiveSponsorsByConference);
 
-	// Booth Router
-	router.app.post('/:context/booths', boothRouter.postBooth);
-	router.app.put('/:context/booths/:id', boothRouter.putBooth);
-	router.app.get('/:context/booths/:id', boothRouter.getBooth);
-	router.app.get('/:context/booths', boothRouter.getAllBooths);
-	router.app.get('/:context/booths/status/:status', boothRouter.getAllActiveBooths);
-	router.app.get('/:context/booths/confId/:confId', boothRouter.getAllActiveBoothByConference);
+    // Booth Router
+    router.app.post('/:context/booths', boothRouter.postBooth);
+    router.app.put('/:context/booths/:id', boothRouter.putBooth);
+    router.app.get('/:context/booths/:id', boothRouter.getBooth);
+    router.app.get('/:context/booths', boothRouter.getAllBooths);
+    router.app.get('/:context/booths/status/:status', boothRouter.getAllActiveBooths);
+    router.app.get('/:context/booths/confId/:confId', boothRouter.getAllActiveBoothByConference);
 
-	pipe.pipes.handle(request, response, session);
+    // Conference Sponsor Router
+    router.app.post('/:context/conferenceSponsor', conferenceSponsorRouter.postConferenceSponsor);
+    router.app.put('/:context/conferenceSponsor', conferenceSponsorRouter.putConferenceSponsor);
+    router.app.get('/:context/conferenceSponsor', conferenceSponsorRouter.getAllActiveConferencesWithSponsors);
+
+    // Conference Booth Router
+    router.app.post('/:context/conferenceBooth', conferenceBoothRouter.postConferenceBooth);
+    router.app.put('/:context/conferenceBooth', conferenceBoothRouter.putConferenceBooth);
+    router.app.get('/:context/conferenceBooth', conferenceBoothRouter.getAllActiveConferencesWithBooths);
+
+    // Event Type Router
+    router.app.post('/:context/eventTypes', eventTypeRouter.postEventType);
+    router.app.put('/:context/eventTypes/:id', eventTypeRouter.putEventType);
+    router.app.get('/:context/eventTypes/:id', eventTypeRouter.getEventType);
+    router.app.get('/:context/eventTypes', eventTypeRouter.getAllEventType);
+    router.app.get('/:context/eventTypes/status/:status', eventTypeRouter.getAllActiveEventType);
+
+    // Video Router
+    router.app.post('/:context/videos', videoRouter.postVideo);
+    router.app.put('/:context/videos/:id', videoRouter.putVideo);
+    router.app.del('/:context/videos/:id', videoRouter.deleteVideo);
+    router.app.get('/:context/videos/:id', videoRouter.getVideo);
+    router.app.get('/:context/videos', videoRouter.getAllVideos);
+    router.app.get('/:context/videos/status/:status', videoRouter.getAllActiveVideos);
+    router.app.get('/:context/videos/confId/:confId', videoRouter.getAllActiveVideosByConference);
+
+    // Speaker Router
+    router.app.post('/:context/speakers', speakerRouter.postSpeaker);
+    router.app.put('/:context/speakers/:id', speakerRouter.putSpeaker);
+    router.app.get('/:context/speakers/:id', speakerRouter.getSpeaker);
+    router.app.get('/:context/speakers/:id/:confId', speakerRouter.getConferenceSpeakerWithEvent);
+    router.app.get('/:context/speakers', speakerRouter.getAllSpeakers);
+    router.app.get('/:context/speakers/status/:status', speakerRouter.getAllActiveSpeakers);
+    router.app.get('/:context/speakers/confId/:confId', speakerRouter.getAllConferenceSpeakersWithEvent);
+
+    pipe.pipes.handle(request, response, session);
 }
 
 %>
