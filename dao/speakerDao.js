@@ -13,7 +13,7 @@ var createSpeaker = function (speaker) {
         speaker.bio,
         speaker.bioMobile,
         speaker.photo,
-        speaker.status
+        1
     ];
 
     utils.parseValues(values);
@@ -31,7 +31,7 @@ var updateSpeaker = function (speaker, id) {
         'bio = ' + utils.parseValue(speaker.bio) + ', ' +
         'bioMobile = ' + utils.parseValue(speaker.bioMobile) + ', ' +
         'photo = ' + utils.parseValue(speaker.photo) + ', ' +
-        'status = ' + utils.parseValue(speaker.status) + '' +
+        'status = ' + utils.parseValue(speaker.status) + ' ' +
         'WHERE id = ' + utils.parseValue(id));
 
     return;

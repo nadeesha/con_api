@@ -14,7 +14,11 @@ var createSponsor = function (sponsor) {
         1
     ];
 
+    utils.parseValues(values);
+
     var query = 'INSERT INTO tbl_sponsor (name, logo, links, status) VALUES (' + values.toString() + ')';
+
+    db.query(query);
 
     return;
 }

@@ -8,8 +8,8 @@ var utils = require('./utils.js');
 var createEventType = function (eventType) {
 
     var values = [
-        agenda.name,
-        agenda.status
+        eventType.name,
+        1
     ];
 
     utils.parseValues(values);
@@ -23,7 +23,7 @@ var updateEventType = function (eventType, id) {
 
     db.query('UPDATE tbl_event_type SET ' +
         'name = ' + utils.parseValue(eventType.name) + ', ' +
-        'status = ' + utils.parseValue(eventType.status) + ' ' +
+        'status = ' + utils.parseValue(eventType.status) || 1 + ' ' +
         'WHERE id = ' + utils.parseValue(id));
 
     return;

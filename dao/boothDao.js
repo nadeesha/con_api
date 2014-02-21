@@ -31,7 +31,7 @@ var updateBooth = function (booth, id) {
         'logo = ' + utils.parseValue(booth.logo) + ', ' +
         'links = ' + utils.parseValue(booth.links) + ', ' +
         'status = ' + utils.parseValue(booth.status) + ' ' +
-        'WHERE id = ' + utils.parseValue(id) + ')');
+        'WHERE id = ' + utils.parseValue(id));
 
     return;
 }
@@ -43,13 +43,13 @@ var getBoothByBoothId = function (boothId) {
 }
 
 var getAllBooths = function () {
-    var result = db.query("SELECT * FROM tbl_booth");
+    var result = db.query('SELECT * FROM tbl_booth');
 
     return result;
 }
 
 var getAllActiveBooths = function () {
-    var result = db.query("SELECT * FROM tbl_booth WHERE status = 1");
+    var result = db.query('SELECT * FROM tbl_booth WHERE status = 1');
 
     return result;
 }
