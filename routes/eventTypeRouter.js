@@ -7,30 +7,34 @@ var eventTypeDao = require('/dao/eventTypeDao.js');
 var postEventType = function (req, res) {
     var eventType = JSON.parse(req.getContent());
 
-    if (!eventType.name || !eventType.status) {
+    log.info('...................................');
+    log.info(eventType);
+
+    if (!eventType.name) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
-            message: 'Event type should contain name and status'
+            message: 'Event type should contain name'
         };
     } else {
-        res.status = 200;
+        eventType.status = 1;
         eventTypeDao.createEventType(eventType);
+        res.status = 200;
     }
 };
 
 var putEventType = function (req, res) {
     var eventType = JSON.parse(req.getContent());
 
-    if (!eventType.name || !eventType.status) {
+    if (!eventType.name) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
-            message: 'Event type should contain name and status'
+            message: 'Event type should contain name'
         };
     } else {
-        res.status = 200;
         eventTypeDao.updateEventType(eventType, Number(req._params.id));
+        res.status = 200;
     }
 };
 

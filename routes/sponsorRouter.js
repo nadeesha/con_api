@@ -7,30 +7,31 @@ var sponsorDao = require('/dao/sponsorDao.js');
 var postSponsor = function(req,res){
     var sponsor = JSON.parse(req.getContent());
 
-        if (!sponsor.name || !sponsor.status) {
+        if (!sponsor.name || !sponsor.logo || !sponsor.links) {
             res.status = 400;
             res.contentType = 'application/json';
             res.content = {
                 message: 'Sponsor should contain name and status'
             };
         } else {
-            res.status=200;
             sponsorDao.createSponsor(sponsor);
+            res.status=200;
         }
 }
 
 var putSponsor = function(req,res){
     var sponsor = JSON.parse(req.getContent());
 
-        if (!sponsor.name || !sponsor.status) {
+        if (!sponsor.name || !sponsor.logo || !sponsor.links) {
             res.status = 400;
             res.contentType = 'application/json';
             res.content = {
                 message: 'Sponsor should contain id, name and status'
             };
         } else {
-            res.status=200;
+            sponsor.status = sponsor.status || 1;
             sponsorDao.updateSponsor(sponsor, Number(req._params.id));
+            res.status=200;
         }
 }
 

@@ -4,29 +4,31 @@ var boothDao = require('/dao/boothDao.js');
 
 var postBooth = function (req, res) {
     var booth = JSON.parse(req.getContent());
-    if (!booth.name || !booth.status) {
+    if (!booth.name || !booth.links) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Booth should contain name and status'
         };
     } else {
-        res.status = 200;
+        booth.status = 1;
         var result = boothDao.createBooth(booth);
+        res.status = 200;
     }
 }
 
 var putBooth = function (req, res) {
     var booth = JSON.parse(req.getContent());
-    if (!booth.name || !booth.status) {
+    if (!booth.name || !booth.links) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Booth should contain id, name and status'
         };
     } else {
-        res.status = 200;
+        booth.status = booth.status || 1;
         var result = boothDao.updateBooth(booth, Number(req._params.id));
+        res.status = 200;
     }
 }
 

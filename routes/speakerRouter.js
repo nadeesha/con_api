@@ -7,7 +7,7 @@ var speakerDao = require('/dao/speakerDao.js');
 var postSpeaker = function (req, res) {
     var speaker = JSON.parse(req.getContent());
 
-    if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile || !speaker.status) {
+    if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
@@ -22,15 +22,16 @@ var postSpeaker = function (req, res) {
 var putSpeaker = function (req, res) {
     var speaker = JSON.parse(req.getContent());
 
-    if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile || !speaker.status) {
+    if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Speaker should contain name, designation, bio, bioMobile and status'
         };
     } else {
-        res.status = 200;
         speakerDao.updateSpeaker(speaker, Number(req._params.id));
+        speaker.status = speaker.status || 1;
+        res.status = 200;
     }
 }
 
