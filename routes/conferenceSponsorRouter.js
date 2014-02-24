@@ -6,30 +6,32 @@ var conferenceSponsorDao = require('/dao/conferenceSponsorDao.js');
 
 var postConferenceSponsor = function (req, res) {
     var conferenceSponsor = JSON.parse(req.getContent());
-    if (!conferenceSponsor.conferenceId || !conferenceSponsor.sponsorId || !conferenceSponsor.status) {
+    if (!conferenceSponsor.conferenceId || !conferenceSponsor.sponsorId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Conference Sponsor should contain conferenceId, sponsorId and status'
         };
     } else {
-        res.status = 200;
+        conferenceSponsor.status = 1;
         conferenceSponsorDao.createConferenceSponsor(conferenceSponsor);
+        res.status = 200;
     }
 }
 
 var putConferenceSponsor = function (req, res) {
     var conferenceSponsor = JSON.parse(req.getContent());
 
-    if (!conferenceSponsor.conferenceId || !conferenceSponsor.sponsorId || !conferenceSponsor.status) {
+    if (!conferenceSponsor.conferenceId || !conferenceSponsor.sponsorId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Conference Sponsor should contain conferenceId, sponsorId and status'
         };
     } else {
-        res.status = 200;
+        conferenceSponsor.status = conferenceSponsor.status || 1;
         conferenceSponsorDao.updateConferenceSponsor(conferenceSponsor);
+        res.status = 200;
     }
 }
 

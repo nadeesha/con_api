@@ -10,15 +10,16 @@ errHandler.environment = 'dev';
 var conferenceRouter = require('/routes/conferenceRouter.js');
 var sponsorRouter = require('/routes/sponsorRouter.js');
 var boothRouter = require('/routes/boothRouter.js');
+var eventTypeRouter = require('/routes/eventTypeRouter.js');
+var speakerRouter = require('/routes/speakerRouter.js');
+
 var conferenceSponsorRouter = require('/routes/conferenceSponsorRouter.js');
 var conferenceBoothRouter = require('/routes/conferenceBoothRouter.js');
-var eventTypeRouter = require('/routes/eventTypeRouter.js');
+var eventRouter = require('/routes/eventRouter.js');
 var videoRouter = require('/routes/videoRouter.js');
-var speakerRouter = require('/routes/speakerRouter.js');
 var speakerEventRouter = require('/routes/speakerEventRouter.js');
 var agendaRouter = require('/routes/agendaRouter.js');
 var trackRouter = require('/routes/trackRouter.js');
-var eventRouter = require('/routes/eventRouter.js');
 
 response.addHeader('Access-Control-Allow-Origin', '*');
 response.addHeader('Access-Control-Allow-Methods',
@@ -47,14 +48,13 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/conferences/:id', conferenceRouter.getConference);
     router.app.get('/:context/conferences', conferenceRouter.getAllConferences);
     router.app.get('/:context/conferences/status/:status', conferenceRouter.getActiveConferences);
+    router.app.get('/:context/conferences/:confId/sponsors', sponsorRouter.getAllActiveSponsorsByConference);
 
     // Sponsor Routes
     router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
-    router.app.put('/:context/sponsors/:id/', sponsorRouter.putSponsor);
     router.app.get('/:context/sponsors/:id', sponsorRouter.getSponsor);
     router.app.get('/:context/sponsors', sponsorRouter.getAllSponsors);
     router.app.get('/:context/sponsors/status/:status', sponsorRouter.getAllActiveSponsors);
-    router.app.get('/:context/sponsors/confId/:confId', sponsorRouter.getAllActiveSponsorsByConference);
 
     // Booth Router
     router.app.post('/:context/booths', boothRouter.postBooth);
