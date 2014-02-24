@@ -16,7 +16,7 @@ var parseValues = function(arr) {
 
 // takes a value and parses it for safe CRUD
 var parseValue = function(value) {
-	if (typeof value === 'string') {
+	if (typeof value === 'string' || value instanceof Date) {
 		return '"' + value + '"';
 	} else {
 		return value;
