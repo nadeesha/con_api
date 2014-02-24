@@ -24,11 +24,16 @@ var createTrack = function (track) {
 
 var updateTrack = function (track, id) {
 
-    db.query('UPDATE tbl_track SET ' +
+    var query = 'UPDATE tbl_track SET ' +
         'name = ' + utils.parseValue(track.name) + ', ' +
         'agendaId = ' + utils.parseValue(track.agendaId) + ', ' +
         'conferenceId = ' + utils.parseValue(track.conferenceId) + ' ' +
-        'WHERE id = ' + utils.parseValue(id));
+        'WHERE id = ' + utils.parseValue(id);
+
+    log.info('..........................................');
+    log.info(query);
+
+    db.query(query);
 
     return;
 }
@@ -46,8 +51,8 @@ var getTrackByTrackId = function (trackId) {
     return result;
 }
 
-var getAllTracks = function () {
-    var result = db.query('SELECT * FROM tbl_track');
+var getAllTracks = function (agendaId) {
+    var result = db.query('SELECT * FROM tbl_track WHERE agendaId=' + agendaId);
     return result;
 }
 

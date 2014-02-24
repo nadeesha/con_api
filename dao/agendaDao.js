@@ -17,6 +17,9 @@ var createAgenda = function (agenda) {
 
     var query = 'INSERT INTO tbl_agenda (name, date, conferenceId) VALUES (' + values.toString() + ')';
 
+    var log =  new Log();
+    log.info(query);
+
     db.query(query);
 
     return;

@@ -22,8 +22,12 @@ var createEvent = function (event) {
 
     utils.parseValues(values);
 
-    var query = 'INSERT INTO tbl_event (title, description, venue, fromDateTime, toDateTime, isCrossTrack, ' +
+    var query = 'INSERT INTO tbl_event (title, description, venue, ' + 
+        'fromDateTime, toDateTime, isCrossTrack, ' +
         'eventTypeId, trackId, agendaId, conferenceId) VALUES (' + values.toString() + ')';
+
+    log.info('....................');
+    log.info(query);
 
     db.query(query);
 
@@ -31,8 +35,7 @@ var createEvent = function (event) {
 }
 
 var updateEvent = function (event, id) {
-
-    db.query('UPDATE tbl_event SET ' +
+    var query = 'UPDATE tbl_event SET ' +
         'title = ' + utils.parseValue(event.title) + ', ' +
         'description = ' + utils.parseValue(event.description) + ', ' +
         'venue = ' + utils.parseValue(event.venue) + ', ' +
@@ -43,7 +46,12 @@ var updateEvent = function (event, id) {
         'trackId = ' + utils.parseValue(event.trackId) + ', ' +
         'agendaId = ' + utils.parseValue(event.agendaId) + ', ' +
         'conferenceId = ' + utils.parseValue(event.conferenceId) + ' ' +
-        'WHERE  id = ' + utils.parseValue(id));
+        'WHERE  id = ' + utils.parseValue(id);
+
+    log.info('....................');
+    log.info(query);
+
+    db.query(query);
 
     return;
 }
@@ -56,13 +64,13 @@ var deleteEvent = function (eventId) {
 
 var getEventByEventId = function (eventId) {
     var result = db.query('SELECT ' +
-        'TRIM(te.id) AS eventId,' +
-        'TRIM(te.title)  AS eventTitle,' +
-        'TRIM(te.description) AS eventDescription,' +
-        'TRIM(te.venue) AS eventVenue,' +
-        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
-        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
-        'TRIM(te.isCrossTrack) AS eventIsCrossTrack ' +
+        'TRIM(te.id) AS id,' +
+        'TRIM(te.title)  AS title,' +
+        'TRIM(te.description) AS description,' +
+        'TRIM(te.venue) AS venue,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS fromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS toDateTime,' +
+        'TRIM(te.isCrossTrack) AS isCrossTrack ' +
         'FROM tbl_event te WHERE id = ' + utils.parseValue(eventId));
 
     return result;
@@ -70,7 +78,7 @@ var getEventByEventId = function (eventId) {
 
 var getEventByEventIdWithSpekers = function (eventId) {
     var result = db.query('SELECT ' +
-        'TRIM(te.id) AS eventId,' +
+        'TRIM(te.id) AS id,' +
         'TRIM(te.title)  AS eventTitle,' +
         'TRIM(te.description) AS eventDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
@@ -90,14 +98,16 @@ var getEventByEventIdWithSpekers = function (eventId) {
 
 var getAllEventByTrack = function (trackId) {
     var result = db.query('SELECT ' +
-        'TRIM(id) AS eventId,' +
-        'TRIM(title)  AS eventTitle,' +
-        'TRIM(description) AS eventDescription,' +
-        'TRIM(venue) AS eventVenue,' +
-        'DATE_FORMAT(fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
-        'DATE_FORMAT(toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
-        'TRIM(isCrossTrack) AS eventIsCrossTrack ' +
-        'FROM tbl_event WHERE trackId = ' + utils.parseValue(trackId));
+        'TRIM(te.id) AS id,' +
+        'TRIM(te.title)  AS title,' +
+        'TRIM(te.description) AS description,' +
+        'TRIM(te.venue) AS venue,' +
+        'TRIM(te.eventTypeId) AS eventTypeId,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %H:%i:%s\') AS toDateTime,' +
+        'TRIM(te.isCrossTrack) AS isCrossTrack ' +
+        'FROM tbl_event te WHERE trackId = ' + utils.parseValue(trackId));
+
     return result;
 }
 
