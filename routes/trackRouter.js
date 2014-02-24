@@ -7,30 +7,34 @@ var trackDao = require('/dao/trackDao.js');
 var postTrack = function(req,res){
     var track = JSON.parse(req.getContent());
 
-        if(!track.name || !track.agendaId || !track.conferenceId){
+        if(!track.name){
             res.status = 400;
             res.contentType = 'application/json';
             res.content = {
                 message: 'Track should contain name, agendaId and conferenceId'
             };
         } else {
-            res.status = 200;
+            track.agendaId = Number(req._params.agendaId);
+            track.conferenceId = Number(req._params.confId);
             trackDao.createTrack(track);
+            res.status = 200;
         }
 }
 
 var putTrack = function(req,res) {
     var track = JSON.parse(req.getContent());
 
-        if(!track.name || !track.agendaId || !track.conferenceId){
+        if(!track.name){
             res.status = 400;
             res.contentType = 'application/json';
             res.content = {
                 message: 'Track should contain id, name, agendaId and conferenceId'
             };
         } else {
+            track.agendaId = Number(req._params.agendaId);
+            track.conferenceId = Number(req._params.confId);
+            trackDao.updateTrack(track, Number(req._params.id));
             res.status = 200;
-            trackDao.updateTrack(track);
         }
 }
 
@@ -63,9 +67,9 @@ var getTrack = function(req,res) {
 }
 
 var getAllTracks = function(req,res) {
-    res.status = 200;
+    res.content = trackDao.getAllTracks(req._params.agendaId);
     res.contentType = "application/json";
-    res.content = trackDao.getAllTracks();
+    res.status = 200;
 }
 
 var getTrackByAgendaWithEventsSpeakers = function(req,res) {

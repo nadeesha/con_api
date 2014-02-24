@@ -4,37 +4,48 @@
 
 var eventDao = require('/dao/eventDao.js');
 
-var postEvent = function (req, res) {
+var postEvent = function(req, res) {
     var event = JSON.parse(req.getContent());
 
-    if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || !event.isCrossTrack || !event.eventTypeId || !event.trackId || !event.agendaId || !event.conferenceId) {
+    if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || typeof event.isCrossTrack === 'undefined' || !event.eventTypeId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Event should contain title, description, venue, fromDateTime, toDateTime, isCrossTrack, eventTypeId, trackId, agendaId and conferenceId'
         };
     } else {
-        res.status = 200;
+        event.trackId = req._params.trackId;
+        event.agendaId = req._params.agendaId;
+        event.conferenceId = req._params.confId;
+
+        // event.fromDateTime = new Date();
+        // event.toDateTime = new Date();
         eventDao.createEvent(event);
+        res.status = 200;
     }
 }
 
-var putEvent = function (req, res) {
+var putEvent = function(req, res) {
     var event = JSON.parse(req.getContent());
 
-    if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || !event.isCrossTrack || !event.eventTypeId || !event.trackId || !event.agendaId || !event.conferenceId) {
+    if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || typeof event.isCrossTrack === 'undefined'  || !event.eventTypeId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Event should contain title, description, venue, fromDateTime, toDateTime, isCrossTrack, eventTypeId, trackId, agendaId and conferenceId'
         };
     } else {
-        res.status = 200;
+        event.trackId = req._params.trackId;
+        event.agendaId = req._params.agendaId;
+        event.conferenceId = req._params.confId;
+        log.info('................................................................................');
+        log.info(event.fromDateTime);
         eventDao.updateEvent(event, Number(req._params.id));
+        res.status = 200;
     }
 }
 
-var deleteEvent = function (req, res) {
+var deleteEvent = function(req, res) {
     var eventId = req._params.id;
 
     if (eventId) {
@@ -43,7 +54,7 @@ var deleteEvent = function (req, res) {
     }
 }
 
-var getEvent = function (req, res) {
+var getEvent = function(req, res) {
     var eventId = req._params.id;
 
     if (eventId) {
@@ -63,7 +74,7 @@ var getEvent = function (req, res) {
     }
 }
 
-var getEventByEventIdWithSpekers = function (req, res) {
+var getEventByEventIdWithSpekers = function(req, res) {
     var eventId = req._params.id;
 
     if (eventId) {
@@ -83,27 +94,23 @@ var getEventByEventIdWithSpekers = function (req, res) {
     }
 }
 
-var getAllEventByTrack = function (req, res) {
-    var trackId = req._params.trckId1;
+var getAllEventByTrack = function(req, res) {
+    var result = eventDao.getAllEventByTrack(Number(req._params.trackId));
 
-    if (trackId) {
-        var result = eventDao.getAllEventByTrack(Number(trackId));
-
-        if (result) {
-            res.status = 200;
-            res.contentType = "application/json";
-            res.content = result;
-        } else {
-            res.status = 400;
-            res.contentType = 'application/json';
-            res.content = {
-                message: 'Event data not found for given track'
-            };
-        }
+    if (result) {
+        res.status = 200;
+        res.contentType = "application/json";
+        res.content = result;
+    } else {
+        res.status = 400;
+        res.contentType = 'application/json';
+        res.content = {
+            message: 'Event data not found for given track'
+        };
     }
 }
 
-var getAllEventByEventTypeWithSpeakers = function (req, res) {
+var getAllEventByEventTypeWithSpeakers = function(req, res) {
     var eventTypeId = req._params.eveTypId;
 
     if (eventTypeId) {
@@ -122,7 +129,7 @@ var getAllEventByEventTypeWithSpeakers = function (req, res) {
     }
 }
 
-var getAllEventByTrackWithEventTypesSpeakers = function (req, res) {
+var getAllEventByTrackWithEventTypesSpeakers = function(req, res) {
     var trackId = req._params.trckId2;
 
     if (trackId) {
@@ -142,7 +149,7 @@ var getAllEventByTrackWithEventTypesSpeakers = function (req, res) {
     }
 }
 
-var getAllEventBySpeakerWithEventType = function (req, res) {
+var getAllEventBySpeakerWithEventType = function(req, res) {
     var speakerId = req._params.spkrId;
 
     if (speakerId) {

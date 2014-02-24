@@ -7,13 +7,15 @@ var agendaDao = require('/dao/agendaDao.js');
 var postAgenda = function (req, res) {
     var agenda = JSON.parse(req.getContent());
 
-    if (!agenda.name || !agenda.date || !agenda.conferenceId) {
+    if (!agenda.name || !agenda.date) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
             message: 'Agenda should contain name, date and conferenceId'
         }
     } else {
+        agenda.status = 1;
+        agenda.conferenceId = req._params.confId;
         agendaDao.createAgenda(agenda);
         res.status = 200;
     }
@@ -28,7 +30,8 @@ var putAgenda = function (req, res) {
                 message: 'Agenda should contain name, date and conferenceId'
             }
         } else {
-            agendaDao.updateAgenda(agenda, Number(res._params.id));
+            agenda.status = agenda.status || 1;
+            agendaDao.updateAgenda(agenda, Number(req._params.id));
             res.status = 200;
         }
 }
@@ -61,7 +64,7 @@ var getAgenda = function (req, res) {
 }
 
 var getAllAgendaByConference = function (req, res) {
-    var conferenceId = req._params.confId1;
+    var conferenceId = req._params.confId;
     if (conferenceId) {
         var result = agendaDao.getAllAgendaByConference(Number(conferenceId));
 
@@ -100,7 +103,7 @@ var getAgendaByConferenceWithTracksEventsSpeakers = function (req, res) {
 }
 
 var getAllAgendaByConferenceWithTracksEventsSpeakers = function (req, res) {
-    var conferenceId = req._params.confId2;
+    var conferenceId = req._params.confId;
     if (conferenceId) {
         var result = agendaDao.getAllAgendaByConferenceWithTracksEventsSpeakers(Number(conferenceId));
 
