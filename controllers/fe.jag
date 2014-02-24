@@ -50,6 +50,7 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/conferences/status/:status', conferenceRouter.getActiveConferences);
     router.app.get('/:context/conferences/:confId/sponsors', sponsorRouter.getAllActiveSponsorsByConference);
     router.app.get('/:context/conferences/:confId/booths', boothRouter.getAllActiveBoothByConference);
+    router.app.get('/:context/conferences/:confId/agendas', agendaRouter.getAllAgendaByConference);
 
     // Sponsor Routes
     router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
@@ -105,33 +106,26 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.del('/:context/speakerEvent/:spkrId/:evntId', speakerEventRouter.deleteSpeakerEvent);
 
     // Agenda Router
-    router.app.post('/:context/agendas', agendaRouter.postAgenda);
-    router.app.put('/:context/agendas/:id', agendaRouter.putAgenda);
-    router.app.del('/:context/agendas/:id', agendaRouter.deleteAgenda);
-    router.app.get('/:context/agendas/:id', agendaRouter.getAgenda);
-    router.app.get('/:context/agendas/:id/:confId', agendaRouter.getAgendaByConferenceWithTracksEventsSpeakers);
-    router.app.get('/:context/agendas/confId1/:confId1', agendaRouter.getAllAgendaByConference);
-    router.app.get('/:context/agendas/confId2/:confId2', agendaRouter.getAllAgendaByConferenceWithTracksEventsSpeakers);
+    router.app.post('/:context/conferences/:confId/agendas', agendaRouter.postAgenda);
+    router.app.put('/:context/conferences/:confId/agendas/:id', agendaRouter.putAgenda);
+    router.app.del('/:context/conferences/:confId/agendas/:id', agendaRouter.deleteAgenda);
+    router.app.get('/:context/conferences/:confId/agendas/:id', agendaRouter.getAgenda);
 
     // Track Router
-    router.app.post('/:context/tracks', trackRouter.postTrack);
-    router.app.put('/:context/tracks/:id', trackRouter.putTrack);
-    router.app.del('/:context/tracks/:id', trackRouter.deleteTrack);
-    router.app.get('/:context/tracks/:id', trackRouter.getTrack);
-    router.app.get('/:context/tracks', trackRouter.getAllTracks);
-    router.app.get('/:context/tracks/:id/:agendId', trackRouter.getTrackByAgendaWithEventsSpeakers);
-    router.app.get('/:context/tracks/agendId/:agendId', trackRouter.getAllTracksByAgendaWithEventsSpeakers);
+    router.app.post('/:context/conferences/:confId/agendas/:agendaId/tracks', trackRouter.postTrack);
+    router.app.put('/:context/conferences/:confId/agendas/:agendaId/tracks/:id', trackRouter.putTrack);
+    router.app.del('/:context/conferences/:confId/agendas/:agendaId/tracks/:id', trackRouter.deleteTrack);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:id', trackRouter.getTrack);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks', trackRouter.getAllTracks);
+
+
 
     // Event Router
-    router.app.post('/:context/events', eventRouter.postEvent);
-    router.app.put('/:context/events/:id', eventRouter.putEvent);
-    router.app.del('/:context/events/:id', eventRouter.deleteEvent);
-    router.app.get('/:context/events/:id', eventRouter.getEvent);
-    router.app.get('/:context/events/:id/withSpkr', eventRouter.getEventByEventIdWithSpekers);
-    router.app.get('/:context/events/trckId1/:trckId1', eventRouter.getAllEventByTrack);
-    router.app.get('/:context/events/eveTypId/:eveTypId', eventRouter.getAllEventByEventTypeWithSpeakers);
-    router.app.get('/:context/events/trckId2/:trckId2', eventRouter.getAllEventByTrackWithEventTypesSpeakers);
-    router.app.get('/:context/events/spkrId/:spkrId', eventRouter.getAllEventBySpeakerWithEventType);
+    router.app.post('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events', eventRouter.postEvent);
+    router.app.put('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events/:id', eventRouter.putEvent);
+    router.app.del('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events/:id', eventRouter.deleteEvent);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events/:id', eventRouter.getEvent);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events', eventRouter.getAllEventByTrack);
 
     pipe.pipes.handle(request, response, session);
 }
