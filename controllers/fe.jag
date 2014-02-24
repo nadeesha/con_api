@@ -49,6 +49,7 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/conferences', conferenceRouter.getAllConferences);
     router.app.get('/:context/conferences/status/:status', conferenceRouter.getActiveConferences);
     router.app.get('/:context/conferences/:confId/sponsors', sponsorRouter.getAllActiveSponsorsByConference);
+    router.app.get('/:context/conferences/:confId/booths', boothRouter.getAllActiveBoothByConference);
 
     // Sponsor Routes
     router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
@@ -62,7 +63,6 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/booths/:id', boothRouter.getBooth);
     router.app.get('/:context/booths', boothRouter.getAllBooths);
     router.app.get('/:context/booths/status/:status', boothRouter.getAllActiveBooths);
-    router.app.get('/:context/booths/confId/:confId', boothRouter.getAllActiveBoothByConference);
 
     // Conference Sponsor Router
     router.app.post('/:context/conferenceSponsor', conferenceSponsorRouter.postConferenceSponsor);
