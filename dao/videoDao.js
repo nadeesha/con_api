@@ -8,6 +8,7 @@ var utils = require('./utils.js');
 var createVideo = function (video) {
 
     var values = [
+        video.name,
         video.link,
         video.status,
         video.conferenceId
@@ -23,6 +24,7 @@ var createVideo = function (video) {
 var updateVideo = function (video, id) {
 
     db.query('UPDATE tbl_video SET ' +
+        'name = ' + utils.parseValue(video.name) + ', ' +
         'link = ' + utils.parseValue(video.link) + ', ' +
         'status = ' + utils.parseValue(video.status) + ', ' +
         'conferenceId = ' + utils.parseValue(video.conferenceId) + ' ' +

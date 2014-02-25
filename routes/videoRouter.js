@@ -22,7 +22,7 @@ var postVideo = function (req, res) {
 var putVideo = function (req, res) {
     var video = JSON.parse(req.getContent());
 
-    if (!video.link || !video.status || !video.conferenceId) {
+    if (!video.name || !video.link || !video.status || !video.conferenceId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
