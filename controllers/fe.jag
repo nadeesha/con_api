@@ -50,6 +50,7 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/conferences/:confId/sponsors', sponsorRouter.getAllActiveSponsorsByConference);
     router.app.get('/:context/conferences/:confId/booths', boothRouter.getAllActiveBoothByConference);
     router.app.get('/:context/conferences/:confId/agendas', agendaRouter.getAllAgendaByConference);
+    router.app.get('/:context/conferences/:confId/videos', videoRouter.getAllActiveVideosByConference);
 
     // Sponsor Routes
     router.app.post('/:context/sponsors', sponsorRouter.postSponsor);
@@ -92,7 +93,6 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/videos/:id', videoRouter.getVideo);
     router.app.get('/:context/videos', videoRouter.getAllVideos);
     router.app.get('/:context/videos/status/:status', videoRouter.getAllActiveVideos);
-    router.app.get('/:context/videos/confId/:confId', videoRouter.getAllActiveVideosByConference);
 
 
     // Speaker Event Router
