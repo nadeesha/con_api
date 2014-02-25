@@ -33,13 +33,13 @@ var putTrack = function(req,res) {
         } else {
             track.agendaId = Number(req._params.agendaId);
             track.conferenceId = Number(req._params.confId);
-            trackDao.updateTrack(track, Number(req._params.id));
+            trackDao.updateTrack(track, Number(req._params.trackId));
             res.status = 200;
         }
 }
 
 var deleteTrack = function(req,res) {
-    var trackId = req._params.id;
+    var trackId = req._params.trackId;
     if(trackId){
         res.status = 200;
         trackDao.deleteTrack(trackId);
@@ -47,7 +47,7 @@ var deleteTrack = function(req,res) {
 }
 
 var getTrack = function(req,res) {
-    var trackId = req._params.id;
+    var trackId = req._params.trackId;
 
     if(trackId){
         var result = trackDao.getTrackByTrackId(trackId);
@@ -73,7 +73,7 @@ var getAllTracks = function(req,res) {
 }
 
 var getTrackByAgendaWithEventsSpeakers = function(req,res) {
-    var trackId = req._params.id;
+    var trackId = req._params.trackId;
     var agendaId = req._params.agendId;
 
     if(trackId && agendaId){

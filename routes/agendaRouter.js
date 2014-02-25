@@ -31,13 +31,13 @@ var putAgenda = function (req, res) {
             }
         } else {
             agenda.status = agenda.status || 1;
-            agendaDao.updateAgenda(agenda, Number(req._params.id));
+            agendaDao.updateAgenda(agenda, Number(req._params.agendaId));
             res.status = 200;
         }
 }
 
 var deleteAgenda = function (req, res) {
-    var agendaId = req._params.id;
+    var agendaId = req._params.agendaId;
     if (agendaId) {
         res.status = 200;
         agendaDao.deleteAgenda(agendaId);
@@ -45,7 +45,7 @@ var deleteAgenda = function (req, res) {
 }
 
 var getAgenda = function (req, res) {
-    var agendaId = req._params.id;
+    var agendaId = req._params.agendaId;
     if (agendaId) {
         var result = agendaDao.getAgendaByAgendaId(Number(agendaId));
 
@@ -83,7 +83,7 @@ var getAllAgendaByConference = function (req, res) {
 }
 
 var getAgendaByConferenceWithTracksEventsSpeakers = function (req, res) {
-    var agendaId = req._params.id;
+    var agendaId = req._params.agendaId;
     var conferenceId = req._params.confId;
     if (agendaId && conferenceId) {
         var result = agendaDao.getAgendaByConferenceWithTracksEventsSpeakers(Number(agendaId), Number(conferenceId));

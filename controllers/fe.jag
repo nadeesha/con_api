@@ -100,15 +100,15 @@ if (request.getMethod() === 'OPTIONS') {
 
     // Agenda Router
     router.app.post('/:context/conferences/:confId/agendas', agendaRouter.postAgenda);
-    router.app.put('/:context/conferences/:confId/agendas/:id', agendaRouter.putAgenda);
-    router.app.del('/:context/conferences/:confId/agendas/:id', agendaRouter.deleteAgenda);
-    router.app.get('/:context/conferences/:confId/agendas/:id', agendaRouter.getAgenda);
+    router.app.put('/:context/conferences/:confId/agendas/:agendaId', agendaRouter.putAgenda);
+    router.app.del('/:context/conferences/:confId/agendas/:agendaId', agendaRouter.deleteAgenda);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId', agendaRouter.getAgenda);
 
     // Track Router
     router.app.post('/:context/conferences/:confId/agendas/:agendaId/tracks', trackRouter.postTrack);
-    router.app.put('/:context/conferences/:confId/agendas/:agendaId/tracks/:id', trackRouter.putTrack);
-    router.app.del('/:context/conferences/:confId/agendas/:agendaId/tracks/:id', trackRouter.deleteTrack);
-    router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:id', trackRouter.getTrack);
+    router.app.put('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId', trackRouter.putTrack);
+    router.app.del('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId', trackRouter.deleteTrack);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId', trackRouter.getTrack);
     router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks', trackRouter.getAllTracks);
 
     // Event Router
