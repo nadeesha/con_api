@@ -31,28 +31,17 @@ var putConference = function(req, res) {
             message: 'Conference should contain id, name, location, start date, end date and logo'
         };
     } else {
-        conferenceDao.updateConference(conference, Number(req._params.id));
+        conferenceDao.updateConference(conference, Number(req._params.confId));
         res.status = 200;
     }
 };
 
 var getConference = function(req, res) {
-    var conferenceId = req._params.id;
-    if (conferenceId) {
-        var result = conferenceDao.getConferenceByConferenceId(Number(conferenceId));
-
-        if (result) {
-            res.status = 200;
-            res.contentType = 'application/json';
-            res.content = result;
-        } else {
-            res.status = 400;
-            res.contentType = 'application/json';
-            res.content = {
-                message: 'Conference data not found'
-            };
-        }
-    }
+    var conferenceId = req._params.confId;
+    var result = conferenceDao.getConferenceByConferenceId(Number(conferenceId));
+    res.status = 200;
+    res.contentType = 'application/json';
+    res.content = result;
 };
 
 var getAllConferences = function(req, res) {

@@ -28,7 +28,7 @@ var postEvent = function(req, res) {
 var putEvent = function(req, res) {
     var event = JSON.parse(req.getContent());
 
-    if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || typeof event.isCrossTrack === 'undefined'  || !event.eventTypeId) {
+    if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || typeof event.isCrossTrack === 'undefined' || !event.eventTypeId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
@@ -97,17 +97,17 @@ var getEventByEventIdWithSpekers = function(req, res) {
 var getAllEventByTrack = function(req, res) {
     var result = eventDao.getAllEventByTrack(Number(req._params.trackId));
 
-    if (result) {
-        res.status = 200;
-        res.contentType = "application/json";
-        res.content = result;
-    } else {
-        res.status = 400;
-        res.contentType = 'application/json';
-        res.content = {
-            message: 'Event data not found for given track'
-        };
-    }
+    res.status = 200;
+    res.contentType = "application/json";
+    res.content = result;
+}
+
+var getAllEvents = function(req, res) {
+    var result = eventDao.getAllEvents();
+
+    res.status = 200;
+    res.contentType = "application/json";
+    res.content = result;
 }
 
 var getAllEventByEventTypeWithSpeakers = function(req, res) {

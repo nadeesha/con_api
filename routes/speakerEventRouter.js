@@ -7,7 +7,7 @@ var speakerEventDao = require('/dao/speakerEventDao.js');
 var postSpeakerEvent = function (req, res, session) {
     var speakerEvent = JSON.parse(req.getContent());
 
-    if (!speakerEvent.speakerId || !speakerEvent.eventId || !speakerEvent.eventTypeId || !speakerEvent.agendaId || !speakerEvent.conferenceId) {
+    if (!speakerEvent.speakerId || !speakerEvent.eventId) {
         res.status = 400;
         res.contentType = 'application/json';
         res.content = {
