@@ -16,7 +16,7 @@ var createVideo = function (video) {
 
     utils.parseValues(values);
 
-    db.query('INSERT INTO tbl_video (link, status, conferenceId) VALUES (' + values.toString() + ')');
+    db.query('INSERT INTO tbl_video (name, link, status, conferenceId) VALUES (' + values.toString() + ')');
 
     return;
 }
