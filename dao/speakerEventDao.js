@@ -9,15 +9,12 @@ var createSpeakerEvent = function (speakerEvent) {
 
     var values = [
         speakerEvent.speakerId,
-        speakerEvent.eventId,
-        speakerEvent.eventTypeId,
-        speakerEvent.agendaId,
-        speakerEvent.conferenceId
+        speakerEvent.eventId
     ];
 
     utils.parseValues(values);
 
-    var query = 'INSERT INTO tbl_speaker_event (speakerId, eventId, eventTypeId, agendaId, conferenceId) VALUES (' + values.toString() + ')';
+    var query = 'INSERT INTO tbl_speaker_event (speakerId, eventId) VALUES (' + values.toString() + ')';
 
     db.query(query);
 

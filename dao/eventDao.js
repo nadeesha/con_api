@@ -111,6 +111,28 @@ var getAllEventByTrack = function (trackId) {
     return result;
 }
 
+var getAllEvents = function (trackId) {
+    var result = db.query('SELECT * FROM tbl_event');
+    return result;
+}
+
+
+var getAllEventByTrack = function (trackId) {
+    var result = db.query('SELECT ' +
+        'TRIM(te.id) AS id,' +
+        'TRIM(te.title)  AS title,' +
+        'TRIM(te.description) AS description,' +
+        'TRIM(te.venue) AS venue,' +
+        'TRIM(te.eventTypeId) AS eventTypeId,' +
+        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
+        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %H:%i:%s\') AS toDateTime,' +
+        'TRIM(te.isCrossTrack) AS isCrossTrack ' +
+        'FROM tbl_event te WHERE trackId = ' + utils.parseValue(trackId));
+
+    return result;
+}
+
+
 var getAllEventByEventTypeWithSpeakers = function (eventTypeId) {
     var result = db.query('SELECT ' +
         'TRIM(te.id) AS eventId,' +
