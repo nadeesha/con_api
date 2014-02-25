@@ -4,7 +4,7 @@
 
 var speakerDao = require('/dao/speakerDao.js');
 
-var postSpeaker = function (req, res) {
+var postSpeaker = function(req, res) {
     var speaker = JSON.parse(req.getContent());
 
     if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile) {
@@ -19,7 +19,7 @@ var postSpeaker = function (req, res) {
     }
 }
 
-var putSpeaker = function (req, res) {
+var putSpeaker = function(req, res) {
     var speaker = JSON.parse(req.getContent());
 
     if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile) {
@@ -35,7 +35,7 @@ var putSpeaker = function (req, res) {
     }
 }
 
-var getSpeaker = function (req, res) {
+var getSpeaker = function(req, res) {
     var speakerId = req._params.id;
 
     if (speakerId) {
@@ -55,13 +55,13 @@ var getSpeaker = function (req, res) {
     }
 }
 
-var getAllSpeakers = function (req, res) {
+var getAllSpeakers = function(req, res) {
     res.status = 200;
     res.contentType = "application/json";
     res.content = speakerDao.getAllSpeakers();
 }
 
-var getAllActiveSpeakers = function (req, res) {
+var getAllActiveSpeakers = function(req, res) {
     var status = req._params.status;
 
     if (status && status === '1') {
@@ -81,7 +81,7 @@ var getAllActiveSpeakers = function (req, res) {
     }
 }
 
-var getConferenceSpeakerWithEvent = function (req, res) {
+var getConferenceSpeakerWithEvent = function(req, res) {
     var speakerId = req._params.id;
     var confId = req._params.confId;
 
@@ -102,7 +102,7 @@ var getConferenceSpeakerWithEvent = function (req, res) {
     }
 }
 
-var getAllConferenceSpeakersWithEvent = function (req, res) {
+var getAllConferenceSpeakersWithEvent = function(req, res) {
     var confId = req._params.confId;
 
     if (confId) {
@@ -120,4 +120,14 @@ var getAllConferenceSpeakersWithEvent = function (req, res) {
             };
         }
     }
+}
+
+var getSpeakerEvents = function(req, res) {
+    var speakerId = req._params.id;
+
+    var result = speakerDao.getConferenceSpeakerWithEvent(speakerId);
+
+    res.status = 200;
+    res.contentType = "application/json";
+    res.content = result;
 }

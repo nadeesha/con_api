@@ -5,7 +5,7 @@
 var db = require('./db.js').db;
 var utils = require('./utils.js');
 
-var createSpeaker = function (speaker) {
+var createSpeaker = function(speaker) {
 
     var values = [
         speaker.name,
@@ -23,7 +23,7 @@ var createSpeaker = function (speaker) {
     return;
 }
 
-var updateSpeaker = function (speaker, id) {
+var updateSpeaker = function(speaker, id) {
 
     db.query('UPDATE tbl_speaker SET ' +
         'name = ' + utils.parseValue(speaker.name) + ', ' +
@@ -37,25 +37,25 @@ var updateSpeaker = function (speaker, id) {
     return;
 }
 
-var getSpeakerBySpeakerId = function (speakerId) {
+var getSpeakerBySpeakerId = function(speakerId) {
     var result = db.query('SELECT * FROM tbl_speaker WHERE id = ' + utils.parseValue(speakerId));
 
     return result;
 }
 
-var getAllSpeakers = function () {
+var getAllSpeakers = function() {
     var result = db.query('SELECT * FROM tbl_speaker');
 
     return result;
 }
 
-var getAllActiveSpeakers = function () {
+var getAllActiveSpeakers = function() {
     var result = db.query('SELECT * FROM tbl_speaker WHERE status = 1');
 
     return result;
 }
 
-var getConferenceSpeakerWithEvent = function (speakerId, conferenceId) {
+var getConferenceSpeakerWithEvent = function(speakerId, conferenceId) {
     var result = db.query('SELECT ' +
         'TRIM(ts.id) AS speakerId,' +
         'TRIM(ts.name) AS speakerName,' +
@@ -82,7 +82,7 @@ var getConferenceSpeakerWithEvent = function (speakerId, conferenceId) {
     return result;
 }
 
-var getAllConferenceSpeakersWithEvent = function (conferenceId) {
+var getAllConferenceSpeakersWithEvent = function(conferenceId) {
     var result = db.query('SELECT ' +
         'TRIM(ts.id) AS speakerId,' +
         'TRIM(ts.name) AS speakerName,' +
@@ -104,7 +104,39 @@ var getAllConferenceSpeakersWithEvent = function (conferenceId) {
         'TRIM(tet.name) AS eventTypeName ' +
         'FROM tbl_speaker ts JOIN tbl_speaker_event tse ON ts.id = tse.speakerId ' +
         'JOIN tbl_event te ON tse.eventId  = te.id JOIN tbl_event_type tet ON te.eventTypeId = tet.id ' +
-        'WHERE tse.conferenceId = '+ utils.parseValue(conferenceId));
+        'WHERE tse.conferenceId = ' + utils.parseValue(conferenceId));
 
     return result;
+}
+
+var getConferenceSpeakerWithEvent = function(speakerId) {
+    var eventIdsObj = db.query('SELECT eventId FROM tbl_speaker_event WHERE speakerId=' +
+        utils.parseValue(speakerId));
+
+    if (eventIdsObj.length === 0) {
+        return [];
+    }
+
+    log.info('----------------------------------------------');
+    log.info(eventIdsObj);
+
+    var eventIds = [];
+
+    for (var i = 0; i < eventIdsObj.length; i++) {
+        eventIds.push(Number(eventIdsObj[i].eventId));
+    };
+
+    log.info('----------------------------------------------');
+    log.info(eventIds);
+
+    var query = 'SELECT * FROM tbl_event WHERE id IN (' +
+        eventIds.toString() +
+        ')';
+
+    log.info('----------------------------------------------');
+    log.info(query);
+
+    var events = db.query(query);
+
+    return events;
 }
