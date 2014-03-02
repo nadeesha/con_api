@@ -56,13 +56,13 @@ var getConferenceByConferenceId = function (conferenceId) {
 var getAllConferences = function () {
     var result = db.query('SELECT id, name, location, ' +
         'DATE_FORMAT(startDate, \'%Y-%m-%d\') AS startDate, ' +
-        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' + 'logo, status FROM tbl_conference');
+        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' + 'logo, status FROM tbl_conference ORDER BY startDate');
     return result;
 };
 
 var getAllActiveConferences = function () {
     var result = db.query('SELECT id, name, location, ' +
         'DATE_FORMAT(startDate, \'%Y-%m-%d\') AS startDate, ' +
-        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' + 'logo, status FROM tbl_conference WHERE status = 1');
+        'DATE_FORMAT(endDate, \'%Y-%m-%d\') AS endDate, ' + 'logo, status FROM tbl_conference WHERE status = 1 ORDER BY startDate');
     return result;
 };

@@ -127,12 +127,12 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/version', versionRouter.getVersion);
 
     //Comment Router
-    router.app.put('/:context/comments', commentRouter.postComment);
+    router.app.post('/:context/comments', commentRouter.postComment);
     router.app.get('/:context/comments/event/:eventId', commentRouter.getCommentByEventId);
     router.app.get('/:context/comments/event/:eventId/count', commentRouter.getCommentCountByEventId);
 
-    //Comment Router
-    router.app.put('/:context/ranks', rankRouter.postRank);
+    //Rank Router
+    router.app.post('/:context/ranks', rankRouter.postRank);
     router.app.get('/:context/ranks/event/:eventId', rankRouter.getRankByEventId);
     router.app.get('/:context/ranks/event/:eventId/count', rankRouter.getRankCountByEventId);
 

@@ -51,7 +51,7 @@ var getAgendaByAgendaId = function (agendaId) {
 
 var getAllAgendaByConference = function (conferenceId) {
     var result = db.query('SELECT id, name, DATE_FORMAT(date, \'%Y-%m-%d\') AS date, conferenceId ' +
-        'FROM tbl_agenda WHERE conferenceId = ' + utils.parseValue(conferenceId));
+        'FROM tbl_agenda WHERE conferenceId = ' + utils.parseValue(conferenceId) + ' ORDER BY date');
 
     return result;
 }

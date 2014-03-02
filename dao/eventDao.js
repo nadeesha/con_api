@@ -26,9 +26,6 @@ var createEvent = function (event) {
         'fromDateTime, toDateTime, isCrossTrack, ' +
         'eventTypeId, trackId, agendaId, conferenceId) VALUES (' + values.toString() + ')';
 
-    log.info('....................');
-    log.info(query);
-
     db.query(query);
 
     return;
@@ -47,9 +44,6 @@ var updateEvent = function (event, id) {
         'agendaId = ' + utils.parseValue(event.agendaId) + ', ' +
         'conferenceId = ' + utils.parseValue(event.conferenceId) + ' ' +
         'WHERE  id = ' + utils.parseValue(id);
-
-    log.info('....................');
-    log.info(query);
 
     db.query(query);
 
@@ -106,7 +100,7 @@ var getAllEventByTrack = function (trackId) {
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %H:%i:%s\') AS toDateTime,' +
         'TRIM(te.isCrossTrack) AS isCrossTrack ' +
-        'FROM tbl_event te WHERE trackId = ' + utils.parseValue(trackId));
+        'FROM tbl_event te WHERE trackId = ' + utils.parseValue(trackId) + ' ORDER BY te.fromDateTime' );
 
     return result;
 }
@@ -115,23 +109,6 @@ var getAllEvents = function (trackId) {
     var result = db.query('SELECT * FROM tbl_event');
     return result;
 }
-
-
-var getAllEventByTrack = function (trackId) {
-    var result = db.query('SELECT ' +
-        'TRIM(te.id) AS id,' +
-        'TRIM(te.title)  AS title,' +
-        'TRIM(te.description) AS description,' +
-        'TRIM(te.venue) AS venue,' +
-        'TRIM(te.eventTypeId) AS eventTypeId,' +
-        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
-        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %H:%i:%s\') AS toDateTime,' +
-        'TRIM(te.isCrossTrack) AS isCrossTrack ' +
-        'FROM tbl_event te WHERE trackId = ' + utils.parseValue(trackId));
-
-    return result;
-}
-
 
 var getAllEventByEventTypeWithSpeakers = function (eventTypeId) {
     var result = db.query('SELECT ' +
