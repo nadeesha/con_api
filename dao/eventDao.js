@@ -90,7 +90,7 @@ var getEventByEventIdWithSpekers = function (eventId) {
     return result;
 }
 
-var getAllEventByTrack = function (trackId) {
+var getAllEventByTrack = function (agendId, trackId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
         'TRIM(te.title)  AS title,' +
@@ -100,7 +100,9 @@ var getAllEventByTrack = function (trackId) {
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %H:%i:%s\') AS toDateTime,' +
         'te.isCrossTrack AS isCrossTrack ' +
-        'FROM tbl_event te WHERE trackId = ' + utils.parseValue(trackId) + ' ORDER BY te.fromDateTime' );
+        'FROM tbl_event te JOIN tbl_track tt ON te.trackId = tt.id ' +
+        'WHERE trackId = ' + utils.parseValue(trackId) + ' AND tt.agendaId = ' + utils.parseValue(agendId) + ' ' +
+        'ORDER BY te.fromDateTime' );
 
     return result;
 }

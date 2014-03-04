@@ -95,7 +95,7 @@ var getEventByEventIdWithSpekers = function(req, res) {
 }
 
 var getAllEventByTrack = function(req, res) {
-    var result = eventDao.getAllEventByTrack(Number(req._params.trackId));
+    var result = eventDao.getAllEventByTrack(Number(req._params.agendaId), Number(req._params.trackId));
 
     res.status = 200;
     res.contentType = "application/json";
