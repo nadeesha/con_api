@@ -5,7 +5,7 @@
 var agendaDao = require('/dao/agendaDao.js');
 
 var postAgenda = function (req, res) {
-    var agenda = JSON.parse(req.getContent());
+    var agenda = (req.getContent());
 
     if (!agenda.name || !agenda.date) {
         res.status = 400;
@@ -22,7 +22,7 @@ var postAgenda = function (req, res) {
 }
 
 var putAgenda = function (req, res) {
-    var agenda = JSON.parse(req.getContent());
+    var agenda = (req.getContent());
         if (!agenda.name || !agenda.date || !agenda.conferenceId) {
             res.status = 400;
             res.contentType = 'application/json';

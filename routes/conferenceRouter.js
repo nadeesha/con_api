@@ -5,7 +5,7 @@
 var conferenceDao = require('/dao/conferenceDao.js');
 
 var postConference = function(req, res) {
-    var conference = JSON.parse(req.getContent());
+    var conference = (req.getContent());
 
     log.info(req.getContent());
 
@@ -22,7 +22,7 @@ var postConference = function(req, res) {
 };
 
 var putConference = function(req, res) {
-    var conference = JSON.parse(req.getContent());
+    var conference = (req.getContent());
 
     if (!conference.name || !conference.location || !conference.startDate || !conference.endDate || !conference.logo) {
         res.status = 400;

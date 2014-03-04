@@ -5,7 +5,7 @@
 var conferenceBoothDao = require('/dao/conferenceBoothDao.js');
 
 var postConferenceBooth = function (req, res) {
-    var conferenceBooth = JSON.parse(req.getContent());
+    var conferenceBooth = (req.getContent());
 
     if (!conferenceBooth.conferenceId || !conferenceBooth.boothId) {
         res.status = 400;
@@ -21,7 +21,7 @@ var postConferenceBooth = function (req, res) {
 }
 
 var putConferenceBooth = function (req, res) {
-    var conferenceBooth = JSON.parse(req.getContent());
+    var conferenceBooth = (req.getContent());
 
     if (!conferenceBooth.conferenceId || !conferenceBooth.boothId) {
         res.status = 400;

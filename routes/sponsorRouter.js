@@ -5,7 +5,7 @@
 var sponsorDao = require('/dao/sponsorDao.js');
 
 var postSponsor = function(req,res){
-    var sponsor = JSON.parse(req.getContent());
+    var sponsor = (req.getContent());
 
         if (!sponsor.name || !sponsor.logo || !sponsor.links) {
             res.status = 400;
@@ -20,7 +20,7 @@ var postSponsor = function(req,res){
 }
 
 var putSponsor = function(req,res){
-    var sponsor = JSON.parse(req.getContent());
+    var sponsor = (req.getContent());
 
         if (!sponsor.name || !sponsor.logo || !sponsor.links) {
             res.status = 400;

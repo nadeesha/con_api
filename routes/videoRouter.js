@@ -5,7 +5,7 @@
 var videoDao = require('/dao/videoDao.js');
 
 var postVideo = function (req, res) {
-    var video = JSON.parse(req.getContent());
+    var video = (req.getContent());
 
     if (!video.link || !video.status || !video.conferenceId) {
         res.status = 400;
@@ -20,7 +20,7 @@ var postVideo = function (req, res) {
 }
 
 var putVideo = function (req, res) {
-    var video = JSON.parse(req.getContent());
+    var video = (req.getContent());
 
     if (!video.name || !video.link || !video.status || !video.conferenceId) {
         res.status = 400;

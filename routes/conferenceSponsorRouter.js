@@ -5,7 +5,7 @@
 var conferenceSponsorDao = require('/dao/conferenceSponsorDao.js');
 
 var postConferenceSponsor = function (req, res) {
-    var conferenceSponsor = JSON.parse(req.getContent());
+    var conferenceSponsor = (req.getContent());
     if (!conferenceSponsor.conferenceId || !conferenceSponsor.sponsorId) {
         res.status = 400;
         res.contentType = 'application/json';
@@ -20,7 +20,7 @@ var postConferenceSponsor = function (req, res) {
 }
 
 var putConferenceSponsor = function (req, res) {
-    var conferenceSponsor = JSON.parse(req.getContent());
+    var conferenceSponsor = (req.getContent());
 
     if (!conferenceSponsor.conferenceId || !conferenceSponsor.sponsorId) {
         res.status = 400;

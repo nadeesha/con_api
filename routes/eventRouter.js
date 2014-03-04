@@ -5,7 +5,7 @@
 var eventDao = require('/dao/eventDao.js');
 
 var postEvent = function(req, res) {
-    var event = JSON.parse(req.getContent());
+    var event = (req.getContent());
 
     if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || typeof event.isCrossTrack === 'undefined' || !event.eventTypeId) {
         res.status = 400;
@@ -26,7 +26,7 @@ var postEvent = function(req, res) {
 }
 
 var putEvent = function(req, res) {
-    var event = JSON.parse(req.getContent());
+    var event = (req.getContent());
 
     if (!event.title || !event.description || !event.venue || !event.fromDateTime || !event.toDateTime || typeof event.isCrossTrack === 'undefined' || !event.eventTypeId) {
         res.status = 400;
