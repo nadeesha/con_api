@@ -102,6 +102,14 @@ var getAllEventByTrack = function(req, res) {
     res.content = result;
 }
 
+var getAllEventByAgenda = function(req, res) {
+    var result = eventDao.getAllEventByAgenda(Number(req._params.agendaId));
+
+    res.status = 200;
+    res.contentType = "application/json";
+    res.content = result;
+}
+
 var getAllEvents = function(req, res) {
     var result = eventDao.getAllEvents();
 
