@@ -82,6 +82,8 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/:context/speakers/:id/events', speakerRouter.getSpeakerEvents);
     router.app.get('/:context/speakers', speakerRouter.getAllSpeakers);
 
+    router.app.get('/:context/speakerEvents', speakerRouter.getAllSpeakersEvents);
+
     // Event Type Router
     router.app.post('/:context/eventTypes', eventTypeRouter.postEventType);
     router.app.put('/:context/eventTypes/:id', eventTypeRouter.putEventType);

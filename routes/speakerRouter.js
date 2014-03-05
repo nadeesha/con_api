@@ -122,6 +122,14 @@ var getAllConferenceSpeakersWithEvent = function(req, res) {
     }
 }
 
+var getAllSpeakersEvents = function(req, res) {
+    var result = speakerDao.getAllSpeakerEvents();
+
+    res.status = 200;
+    res.contentType = 'application/json';
+    res.content = result;
+}
+
 var getSpeakerEvents = function(req, res) {
     var speakerId = req._params.id;
 
