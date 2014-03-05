@@ -23,7 +23,7 @@ var updateEventType = function (eventType, id) {
 
     db.query('UPDATE tbl_event_type SET ' +
         'name = ' + utils.parseValue(eventType.name) + ', ' +
-        'status = ' + utils.parseValue(eventType.status) || 1 + ' ' +
+        'status = ' + (utils.parseValue(eventType.status) || 1) + ' ' +
         'WHERE id = ' + utils.parseValue(id));
 
     return;

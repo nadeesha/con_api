@@ -5,7 +5,7 @@
 var speakerDao = require('/dao/speakerDao.js');
 
 var postSpeaker = function(req, res) {
-    var speaker = JSON.parse(req.getContent());
+    var speaker = (req.getContent());
 
     if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile) {
         res.status = 400;
@@ -20,7 +20,7 @@ var postSpeaker = function(req, res) {
 }
 
 var putSpeaker = function(req, res) {
-    var speaker = JSON.parse(req.getContent());
+    var speaker = (req.getContent());
 
     if (!speaker.name || !speaker.designation || !speaker.bio || !speaker.bioMobile) {
         res.status = 400;

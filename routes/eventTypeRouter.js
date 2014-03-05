@@ -5,7 +5,7 @@
 var eventTypeDao = require('/dao/eventTypeDao.js');
 
 var postEventType = function (req, res) {
-    var eventType = JSON.parse(req.getContent());
+    var eventType = (req.getContent());
 
     log.info('...................................');
     log.info(eventType);
@@ -24,7 +24,7 @@ var postEventType = function (req, res) {
 };
 
 var putEventType = function (req, res) {
-    var eventType = JSON.parse(req.getContent());
+    var eventType = (req.getContent());
 
     if (!eventType.name) {
         res.status = 400;

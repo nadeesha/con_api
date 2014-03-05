@@ -5,7 +5,7 @@
 var trackDao = require('/dao/trackDao.js');
 
 var postTrack = function(req,res){
-    var track = JSON.parse(req.getContent());
+    var track = (req.getContent());
 
         if(!track.name){
             res.status = 400;
@@ -22,7 +22,7 @@ var postTrack = function(req,res){
 }
 
 var putTrack = function(req,res) {
-    var track = JSON.parse(req.getContent());
+    var track = (req.getContent());
 
         if(!track.name){
             res.status = 400;
