@@ -143,6 +143,7 @@ if (request.getMethod() === 'OPTIONS') {
 
     // Event Category Router
     router.app.post('/:context/eventCategory', eventCategoryRouter.postEventCategory);
+    router.app.get('/:context/eventCategory', eventCategoryRouter.getEventCategories);
     router.app.put('/:context/eventCategory/:id', eventCategoryRouter.putEventCategory);
     router.app.get('/:context/eventCategory/:id', eventCategoryRouter.getEventCategoryByEventCategoryId);
     router.app.get('/:context/eventCategory/:id/events', eventCategoryRouter.getEventCategoryWithEvents);

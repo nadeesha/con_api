@@ -68,3 +68,9 @@ var getEventCategoryWithEvents = function(req, res) {
         }
     }
 }
+
+var getEventCategories = function(req, res) {
+  res.status = 200;
+  res.contentType = "application/json";
+  res.content =  eventCategoryDao.getEventCategories();
+}
