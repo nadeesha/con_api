@@ -7,6 +7,5 @@ var utils = require('./utils.js');
 
 var getVersion = function () {
     var result = db.query('SELECT MAX(version_number) AS versionNumber FROM tbl_version');
-
     return result;
 }

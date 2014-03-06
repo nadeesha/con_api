@@ -46,8 +46,6 @@ if (request.getMethod() === 'OPTIONS') {
         response.status = 200;
     });
 
-    router.app.get('/everything', utilRouter.getEverything());
-
     // Conference Routes
     router.app.post('/:context/conferences', conferenceRouter.postConference);
     router.app.put('/:context/conferences/:confId', conferenceRouter.putConference);
@@ -148,6 +146,8 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.put('/:context/eventCategory/:id', eventCategoryRouter.putEventCategory);
     router.app.get('/:context/eventCategory/:id', eventCategoryRouter.getEventCategoryByEventCategoryId);
     router.app.get('/:context/eventCategory/:id/events', eventCategoryRouter.getEventCategoryWithEvents);
+
+    router.app.get('/:context/everything', utilRouter.getEverything);
 
     pipe.pipes.handle(request, response, session);
 }

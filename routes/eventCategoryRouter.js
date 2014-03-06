@@ -46,6 +46,15 @@ var getEventCategoryByEventCategoryId = function(req, res) {
     }
 }
 
+var getEventCategories = function (req, res) {
+  var result = eventCategoryDao.getEventCategories();
+  if(result){
+      res.status = 200;
+      res.contentType = "application/json";
+      res.content = result;
+  }
+}
+
 var getEventCategoryWithEvents = function(req, res) {
     var eventCategoryId = req._params.id;
 

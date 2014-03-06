@@ -36,6 +36,12 @@ var getEventCategoryByEventCategoryId = function (eventCategoryId) {
     return result;
 }
 
+var getEventCategories = function () {
+    var result = db.query('SELECT * ' +
+        'FROM tbl_event_category');
+    return result;
+}
+
 var getEventCategoryWithEvents = function (eventCategoryId) {
     var result = db.query('SELECT ' +
         'tec.id AS eventCategoryId,' +
