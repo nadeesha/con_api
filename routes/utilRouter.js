@@ -42,29 +42,26 @@ var getEverything = function(req, res) {
 			}
 		}
 
-		everything.sponsors = sponsorDao.getAllSponsors();
 		everything.conferences[i].sponsors = sponsorDao.getAllActiveSponsorsByConference(Number(conferenceId));
-
-		everything.booths = boothDao.getAllBooths();
 		everything.conferences[i].booths = boothDao.getAllActiveBoothByConference(Number(conferenceId));
-
-		everything.videos = videoDao.getAllVideos();
 		everything.conferences[i].videos = videoDao.getAllActiveVideosByConference(Number(conferenceId));
+	}
 
+		everything.sponsors = sponsorDao.getAllSponsors();
+		everything.booths = boothDao.getAllBooths();
+		everything.videos = videoDao.getAllVideos();
 		everything.speakers = speakerDao.getAllSpeakers();
+
 		for (var s = 0; s < everything.speakers.length; s++) {
 			delete everything.speakers[s].bio;
 		}
 
 		everything.eventTypes = eventTypeDao.getAllEventType();
-
 		everything.speakerEventMapping = speakerDao.getAllSpeakerEvents();
 		everything.eventCategories = eventCategoryDao.getEventCategories();
-
 		everything.version = versionDao.getVersion();
 
 		res.status = 200;
 		res.contentType = "application/json";
 		res.content = everything;
-	}
 };
