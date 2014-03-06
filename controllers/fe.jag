@@ -23,6 +23,7 @@ var trackRouter = require('/routes/trackRouter.js');
 var versionRouter = require('/routes/versionRouter.js');
 var commentRouter = require('/routes/commentRouter.js');
 var rankRouter = require('/routes/rankRouter.js');
+var utilRouter = require('/routes/utilRouter.js')
 
 response.addHeader('Access-Control-Allow-Origin', '*');
 response.addHeader('Access-Control-Allow-Methods',
@@ -43,6 +44,8 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.get('/status', function() {
         response.status = 200;
     });
+
+    router.app.get('/everything', utilRouter.getEverything());
 
     // Conference Routes
     router.app.post('/:context/conferences', conferenceRouter.postConference);
