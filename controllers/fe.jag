@@ -24,6 +24,7 @@ var versionRouter = require('/routes/versionRouter.js');
 var commentRouter = require('/routes/commentRouter.js');
 var rankRouter = require('/routes/rankRouter.js');
 var utilRouter = require('/routes/utilRouter.js')
+var eventCategoryRouter = require('/routes/eventCategoryRouter.js');
 
 response.addHeader('Access-Control-Allow-Origin', '*');
 response.addHeader('Access-Control-Allow-Methods',
@@ -127,6 +128,7 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.del('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events/:id', eventRouter.deleteEvent);
     router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events/:id', eventRouter.getEvent);
     router.app.get('/:context/conferences/:confId/agendas/:agendaId/tracks/:trackId/events', eventRouter.getAllEventByTrack);
+    router.app.get('/:context/conferences/:confId/agendas/:agendaId/events', eventRouter.getAllEventByAgenda);
 
     //Version Router
     router.app.get('/:context/version', versionRouter.getVersion);
@@ -140,6 +142,12 @@ if (request.getMethod() === 'OPTIONS') {
     router.app.post('/:context/ranks', rankRouter.postRank);
     router.app.get('/:context/ranks/event/:eventId', rankRouter.getRankByEventId);
     router.app.get('/:context/ranks/event/:eventId/count', rankRouter.getRankCountByEventId);
+
+    // Event Category Router
+    router.app.post('/:context/eventCategory', eventCategoryRouter.postEventCategory);
+    router.app.put('/:context/eventCategory/:id', eventCategoryRouter.putEventCategory);
+    router.app.get('/:context/eventCategory/:id', eventCategoryRouter.getEventCategoryByEventCategoryId);
+    router.app.get('/:context/eventCategory/:id/events', eventCategoryRouter.getEventCategoryWithEvents);
 
     pipe.pipes.handle(request, response, session);
 }
