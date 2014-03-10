@@ -116,6 +116,7 @@ var getAllEventByTrack = function (agendId, trackId) {
         'TRIM(te.description) AS description,' +
         'TRIM(te.venue) AS venue,' +
         'te.eventTypeId AS eventTypeId,' +
+        'te.eventCategoryId AS eventCategoryId,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %H:%i:%s\') AS toDateTime,' +
         'te.isCrossTrack AS isCrossTrack ' +
