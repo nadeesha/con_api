@@ -43,8 +43,8 @@ var updateEvent = function (event, id) {
         'eventTypeId = ' + utils.parseValue(event.eventTypeId) + ', ' +
         'trackId = ' + utils.parseValue(event.trackId) + ', ' +
         'agendaId = ' + utils.parseValue(event.agendaId) + ', ' +
-        'conferenceId = ' + utils.parseValue(event.conferenceId) + ' ' +
-        'eventCategoryId = ' + utils.parseValue(Number(event.eventCategoryId)) + ' ' +
+        'conferenceId = ' + utils.parseValue(event.conferenceId) + ', ' +
+        'eventCategoryId = ' + utils.parseValue(event.eventCategoryId) + ' ' +
         'WHERE  id = ' + utils.parseValue(id);
 
     db.query(query);
