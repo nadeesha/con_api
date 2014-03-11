@@ -23,7 +23,7 @@ var createEvent = function (event) {
 
     utils.parseValues(values);
 
-    var query = 'INSERT INTO tbl_event (title, description, venue, ' + 
+    var query = 'INSERT INTO tbl_event (title, description, venue, ' +
         'fromDateTime, toDateTime, isCrossTrack, ' +
         'eventTypeId, trackId, agendaId, conferenceId, eventCategoryId) VALUES (' + values.toString() + ')';
 
@@ -44,7 +44,7 @@ var updateEvent = function (event, id) {
         'trackId = ' + utils.parseValue(event.trackId) + ', ' +
         'agendaId = ' + utils.parseValue(event.agendaId) + ', ' +
         'conferenceId = ' + utils.parseValue(event.conferenceId) + ' ' +
-        'eventCategoryId = ' + utils.parseValue(event.eventCategoryId) + ' ' +
+        'eventCategoryId = ' + utils.parseValue(Number(event.eventCategoryId)) + ' ' +
         'WHERE  id = ' + utils.parseValue(id);
 
     db.query(query);
@@ -62,7 +62,7 @@ var getEventByEventId = function (eventId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
         'TRIM(te.title)  AS title,' +
-        'TRIM(te.description) AS description,' +
+        'CONVERT(te.description USING ascii) AS description,' +
         'TRIM(te.venue) AS venue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS fromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS toDateTime,' +
@@ -76,7 +76,7 @@ var getAllEventByAgenda = function (agendId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
         'TRIM(te.title)  AS title,' +
-        'TRIM(te.description) AS description,' +
+        'CONVERT(te.description USING ascii) AS description,' +
         'TRIM(te.venue) AS venue,' +
         'te.eventTypeId AS eventTypeId,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
@@ -93,7 +93,7 @@ var getEventByEventIdWithSpekers = function (eventId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
         'TRIM(te.title)  AS eventTitle,' +
-        'TRIM(te.description) AS eventDescription,' +
+        'CONVERT(te.description USING ascii) AS eventDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
@@ -113,7 +113,7 @@ var getAllEventByTrack = function (agendId, trackId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
         'TRIM(te.title)  AS title,' +
-        'TRIM(te.description) AS description,' +
+        'CONVERT(te.description USING ascii) AS description,' +
         'TRIM(te.venue) AS venue,' +
         'te.eventTypeId AS eventTypeId,' +
         'te.eventCategoryId AS eventCategoryId,' +
@@ -131,7 +131,7 @@ var getAllEvents = function (trackId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
         'TRIM(te.title)  AS title,' +
-        'TRIM(te.description) AS description,' +
+        'CONVERT(te.description USING ascii) AS description,' +
         'TRIM(te.venue) AS venue,' +
         'te.eventTypeId AS eventTypeId,' +
         'te.eventCategoryId AS eventCategoryId,' +
@@ -146,7 +146,7 @@ var getAllEventByEventTypeWithSpeakers = function (eventTypeId) {
     var result = db.query('SELECT ' +
         'te.id AS eventId,' +
         'TRIM(te.title)  AS eventTitle,' +
-        'TRIM(te.description) AS eventDescription,' +
+        'CONVERT(te.description USING ascii) AS eventDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
@@ -166,7 +166,7 @@ var getAllEventByTrackWithEventTypesSpeakers = function (trackId) {
     var result = db.query('SELECT ' +
         'te.id AS eventId,' +
         'TRIM(te.title)  AS eventTitle,' +
-        'TRIM(te.description) AS eventDescription,' +
+        'CONVERT(te.description USING ascii) AS eventDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
@@ -189,7 +189,7 @@ var getAllEventBySpeakerWithEventType = function (speakerId) {
     var result = db.query('SELECT ' +
         'te.id AS eventId,' +
         'TRIM(te.title)  AS eventTitle,' +
-        'TRIM(te.description) AS eventDescription,' +
+        'CONVERT(te.description USING ascii) AS eventDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
