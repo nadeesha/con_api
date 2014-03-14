@@ -38,19 +38,19 @@ var updateSpeaker = function(speaker, id) {
 }
 
 var getSpeakerBySpeakerId = function(speakerId) {
-    var result = db.query('SELECT * FROM tbl_speaker WHERE id = ' + utils.parseValue(speakerId));
+    var result = db.query('SELECT id,name,designation,CONVERT(bio USING ascii) AS bio,CONVERT(bioMobile USING ascii) AS bioMobile,photo,status FROM tbl_speaker WHERE id = ' + utils.parseValue(speakerId));
 
     return result;
 }
 
 var getAllSpeakers = function() {
-    var result = db.query('SELECT * FROM tbl_speaker');
+    var result = db.query('SELECT id,name,designation,CONVERT(bio USING ascii) AS bio,CONVERT(bioMobile USING ascii) AS bioMobile,photo,status FROM tbl_speaker');
 
     return result;
 }
 
 var getAllActiveSpeakers = function() {
-    var result = db.query('SELECT * FROM tbl_speaker WHERE status = 1');
+    var result = db.query('SELECT id,name,designation,CONVERT(bio USING ascii) AS bio,CONVERT(bioMobile USING ascii) AS bioMobile,photo,status FROM tbl_speaker WHERE status = 1');
 
     return result;
 }
@@ -60,8 +60,8 @@ var getConferenceSpeakerWithEvent = function(speakerId, conferenceId) {
         'TRIM(ts.id) AS speakerId,' +
         'TRIM(ts.name) AS speakerName,' +
         'TRIM(ts.designation) AS speakerDesignation,' +
-        'TRIM(ts.bio) AS speakerBio,' +
-        'TRIM(ts.bioMobile) AS speakerBioMobile,' +
+        'CONVERT(ts.bio USING ascii) AS speakerBio,' +
+        'CONVERT(ts.bioMobile USING ascii) AS speakerBioMobile,' +
         'TRIM(ts.photo) AS speakerPhoto,' +
         'TRIM(te.id) AS eventId,' +
         'TRIM(te.title) AS eventTitle,' +
@@ -89,8 +89,8 @@ var getAllConferenceSpeakersWithEvent = function(conferenceId) {
         'TRIM(ts.id) AS speakerId,' +
         'TRIM(ts.name) AS speakerName,' +
         'TRIM(ts.designation) AS speakerDesignation,' +
-        'TRIM(ts.bio) AS speakerBio,' +
-        'TRIM(ts.bioMobile) AS speakerBioMobile,' +
+        'CONVERT(ts.bio USING ascii) AS speakerBio,' +
+        'CONVERT(ts.bioMobile USING ascii) AS speakerBioMobile,' +
         'TRIM(ts.photo) AS speakerPhoto,' +
         'TRIM(te.id) AS eventId,' +
         'TRIM(te.title) AS eventTitle,' +
