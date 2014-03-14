@@ -65,7 +65,7 @@ var getConferenceSpeakerWithEvent = function(speakerId, conferenceId) {
         'TRIM(ts.photo) AS speakerPhoto,' +
         'TRIM(te.id) AS eventId,' +
         'TRIM(te.title) AS eventTitle,' +
-        'TRIM(te.description) AS eventtDescription,' +
+        'CONVERT(te.description USING ascii) AS eventtDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
@@ -94,7 +94,7 @@ var getAllConferenceSpeakersWithEvent = function(conferenceId) {
         'TRIM(ts.photo) AS speakerPhoto,' +
         'TRIM(te.id) AS eventId,' +
         'TRIM(te.title) AS eventTitle,' +
-        'TRIM(te.description) AS eventtDescription,' +
+        'CONVERT(te.description USING ascii) AS eventtDescription,' +
         'TRIM(te.venue) AS eventVenue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
