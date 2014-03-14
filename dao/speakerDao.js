@@ -55,32 +55,32 @@ var getAllActiveSpeakers = function() {
     return result;
 }
 
-var getConferenceSpeakerWithEvent = function(speakerId, conferenceId) {
-    var result = db.query('SELECT ' +
-        'TRIM(ts.id) AS speakerId,' +
-        'TRIM(ts.name) AS speakerName,' +
-        'TRIM(ts.designation) AS speakerDesignation,' +
-        'CONVERT(ts.bio USING ascii) AS speakerBio,' +
-        'CONVERT(ts.bioMobile USING ascii) AS speakerBioMobile,' +
-        'TRIM(ts.photo) AS speakerPhoto,' +
-        'TRIM(te.id) AS eventId,' +
-        'TRIM(te.title) AS eventTitle,' +
-        'CONVERT(te.description USING ascii) AS eventtDescription,' +
-        'TRIM(te.venue) AS eventVenue,' +
-        'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
-        'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
-        'TRIM(te.isCrossTrack) AS eventIsCrossTrack,' +
-        'TRIM(te.trackId) AS trackId,' +
-        'TRIM(te.agendaId) AS agendaId,' +
-        'TRIM(te.conferenceId) AS conferenceId,' +
-        'TRIM(tet.id) AS eventTypeId,' +
-        'TRIM(tet.name) AS eventTypeName ' +
-        'FROM tbl_speaker ts JOIN tbl_speaker_event tse ON ts.id = tse.speakerId ' +
-        'JOIN tbl_event te ON tse.eventId  = te.id JOIN tbl_event_type tet ON te.eventTypeId = tet.id ' +
-        'WHERE ts.id = ' + utils.parseValue(speakerId) + ' AND tse.conferenceId = ' + utils.parseValue(conferenceId));
-
-    return result;
-}
+// var getConferenceSpeakerWithEvent = function(speakerId, conferenceId) {
+//     var result = db.query('SELECT ' +
+//         'TRIM(ts.id) AS speakerId,' +
+//         'TRIM(ts.name) AS speakerName,' +
+//         'TRIM(ts.designation) AS speakerDesignation,' +
+//         'CONVERT(ts.bio USING ascii) AS speakerBio,' +
+//         'CONVERT(ts.bioMobile USING ascii) AS speakerBioMobile,' +
+//         'TRIM(ts.photo) AS speakerPhoto,' +
+//         'TRIM(te.id) AS eventId,' +
+//         'TRIM(te.title) AS eventTitle,' +
+//         'CONVERT(te.description USING ascii) AS eventtDescription,' +
+//         'TRIM(te.venue) AS eventVenue,' +
+//         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS eventFromDateTime,' +
+//         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS eventToDateTime,' +
+//         'TRIM(te.isCrossTrack) AS eventIsCrossTrack,' +
+//         'TRIM(te.trackId) AS trackId,' +
+//         'TRIM(te.agendaId) AS agendaId,' +
+//         'TRIM(te.conferenceId) AS conferenceId,' +
+//         'TRIM(tet.id) AS eventTypeId,' +
+//         'TRIM(tet.name) AS eventTypeName ' +
+//         'FROM tbl_speaker ts JOIN tbl_speaker_event tse ON ts.id = tse.speakerId ' +
+//         'JOIN tbl_event te ON tse.eventId  = te.id JOIN tbl_event_type tet ON te.eventTypeId = tet.id ' +
+//         'WHERE ts.id = ' + utils.parseValue(speakerId) + ' AND tse.conferenceId = ' + utils.parseValue(conferenceId));
+//
+//     return result;
+// }
 
 
 
