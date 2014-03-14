@@ -137,9 +137,17 @@ var getConferenceSpeakerWithEvent = function(speakerId) {
     log.info('----------------------------------------------');
     log.info(eventIds);
 
-    var query = 'SELECT * FROM tbl_event WHERE id IN (' +
-        eventIds.toString() +
-        ')';
+    var query = 'SELECT ' +
+                'te.id AS id,' +
+                'TRIM(te.title)  AS title,' +
+                'CONVERT(te.description USING ascii) AS description,' +
+                'TRIM(te.venue) AS venue,' +
+                'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS fromDateTime,' +
+                'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS toDateTime,' +
+                'te.isCrossTrack AS isCrossTrack ' +
+                ' FROM tbl_event te WHERE id IN (' +
+                eventIds.toString() +
+                ')';
 
     log.info('----------------------------------------------');
     log.info(query);
