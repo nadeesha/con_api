@@ -1,263 +1,266 @@
-id	userName	points	eventId
-1	kasund@wso2.com	4	4
-2	kasund@wso2.com	2	9
-3	kasund@wso2.com	2	8
-4	kasund@wso2.com	2	8
-5	kasund@wso2.com	3	13
-6	kasund@wso2.com	2	3
-7	kasund@wso2.com	3	2
-8	kasund@wso2.com	4	3
-9	maduranga@wso2.com	4	43
-10	maduranga@wso2.com	5	43
-11	sudheera@wso2.com	5	38
-12	sanka.11@cse.mrt.ac.lk	5	40
-13	sanka.11@cse.mrt.ac.lk	4	45
-14	pubudud@wso2.com	5	43
-15	osilva@virtusa.com	4	44
-16	osilva@virtusa.com	2	45
-17	dumidu@wso2.com	4	37
-18	supun.nakandala@gmail.com	5	36
-19	supun.nakandala@gmail.com	5	37
-20	supun.nakandala@gmail.com	5	43
-21	supun.nakandala@gmail.com	5	42
-22	dumidu@wso2.com	5	39
-23	nifrasismail@gmail.com	4	40
-24	nifrasismail@gmail.com	5	40
-25	nifrasismail@gmail.com	2	42
-26	nifrasismail@gmail.com	2	42
-27	me@ayomaonline.com	4	37
-28	me@ayomaonline.com	5	37
-29	me@ayomaonline.com	5	37
-30	manjula72@gmail.com	5	40
-31	manjula72@gmail.com	5	45
-32	manjula72@gmail.com	5	45
-33	hsbathiya@gmail.com	4	43
-34	hsbathiya@gmail.com	3	45
-35	hsbathiya@gmail.com	4	45
-36	miller_tamil@live.com	4	3
-37	hsbathiya@gmail.com	4	2
-38	sanka.11@cse.mrt.ac.lk	5	2
-39	seshika@wso2.com	4	2
-40	sanka.11@cse.mrt.ac.lk	5	2
-41	nimeshanishadi@yahoo.com	4	3
-42	nimeshanishadi@yahoo.com	5	3
-43	nimeshanishadi@yahoo.com	5	2
-44	seshika@wso2.com	3	3
-45	sanka.11@cse.mrt.ac.lk	4	3
-46	sahanm@mobitel.lk	4	37
-47	kasund@wso2.com	5	3
-48	sahanm@mobitel.lk	5	45
-49	sahanm@mobitel.lk	5	2
-50	sahanm@mobitel.lk	5	3
-51	kelumg@brandix.com	5	3
-52	kelumg@brandix.com	5	2
-53	kelumg@brandix.com	4	8
-54	osilva@virtusa.com	4	3
-55	osilva@virtusa.com	4	3
-56	sanka.11@cse.mrt.ac.lk	4	8
-57	sahanm@mobitel.lk	4	8
-58	sudheera@wso2.com	5	8
-59	kasund@wso2.com	5	8
-60	sudheera@wso2.com	5	8
-61	wasim_ayoubi@yahoo.com	3	3
-62	wasim_ayoubi@yahoo.com	4	3
-63	wasim_ayoubi@yahoo.com	4	8
-64	seshika@wso2.com	4	8
-65	miller_tamil@live.com	5	3
-66	osilva@virtusa.com	5	2
-67	osilva@virtusa.com	4	3
-68	osilva@virtusa.com	4	8
-69	miller_tamil@live.com	5	8
-70	miller_tamil@live.com	4	9
-71	dayanbandula@gmail.com	4	42
-72	dayanbandula@gmail.com	2	43
-73	dayanbandula@gmail.com	2	2
-74	dayanbandula@gmail.com	4	2
-75	dayanbandula@gmail.com	3	2
-76	dayanbandula@gmail.com	5	3
-77	dayanbandula@gmail.com	3	8
-78	dayanbandula@gmail.com	2	9
-79	kasund@wso2.com	4	9
-80	wasim_ayoubi@yahoo.com	4	9
-81	wasim_ayoubi@yahoo.com	4	3
-82	wasim_ayoubi@yahoo.com	4	8
-83	wasim_ayoubi@yahoo.com	3	9
-84	wenod@wso2.com	4	8
-85	wenod@wso2.com	4	9
-86	kasund@wso2.com	5	10
-87	kelumg@brandix.com	5	10
-88	osilva@virtusa.com	4	10
-89	wso2conasia	5	10
-90	wso2conasia	5	3
-91	chamil@wso2.com	4	9
-92	kasund@wso2.com	4	4
-93	kelumg@brandix.com	5	4
-94	seshika@wso2.com	3	4
-95	osilva@virtusa.com	3	9
-96	osilva@virtusa.com	4	10
-97	osilva@virtusa.com	4	4
-98	kelumg@brandix.com	5	13
-99	rajitha@wso2.com	5	13
-100	sanka.11@cse.mrt.ac.lk	4	9
-101	sanka.11@cse.mrt.ac.lk	5	10
-102	sanka.11@cse.mrt.ac.lk	4	4
-103	sanka.11@cse.mrt.ac.lk	4	13
-104	hsbathiya@gmail.com	4	3
-105	hsbathiya@gmail.com	4	8
-106	hsbathiya@gmail.com	5	10
-107	hsbathiya@gmail.com	5	9
-108	niranjan@wso2.com	5	38
-109	niranjan@wso2.com	5	9
-110	niranjan@wso2.com	5	10
-111	kasund@wso2.com	5	13
-112	thushera@virtusa.com	3	8
-113	thushera@virtusa.com	4	9
-114	thushera@virtusa.com	3	10
-115	thushera@virtusa.com	3	4
-116	thushera@virtusa.com	2	13
-117	thushera@virtusa.com	2	14
-118	thushera@virtusa.com	4	38
-119	thushera@virtusa.com	3	41
-120	thushera@virtusa.com	4	2
-121	kasund@wso2.com	4	14
-122	manjula72@gmail.com	5	13
-123	thushera@virtusa.com	2	14
-124	miller_tamil@live.com	5	5
-125	wenod@wso2.com	5	13
-126	miller_tamil@live.com	5	14
-127	miller_tamil@live.com	5	13
-128	osilva@virtusa.com	4	13
-129	osilva@virtusa.com	2	14
-130	kasund@wso2.com	4	5
-131	sahanm@mobitel.lk	4	13
-132	crishanthan@icta.lk	5	13
-133	crishanthan@icta.lk	4	14
-134	crishanthan@icta.lk	4	5
-135	crishanthan@icta.lk	4	2
-136	crishanthan@icta.lk	4	4
-137	crishanthan@icta.lk	3	15
-138	osilva@virtusa.com	4	5
-139	osilva@virtusa.com	3	15
-140	kasund@wso2.com	4	15
-141	nimeshanishadi@yahoo.com	5	17
-142	nimeshanishadi@yahoo.com	5	16
-143	nimeshanishadi@yahoo.com	3	15
-144	nimeshanishadi@yahoo.com	4	5
-145	nimeshanishadi@yahoo.com	4	14
-146	nimeshanishadi@yahoo.com	5	13
-147	nimeshanishadi@yahoo.com	5	4
-148	nimeshanishadi@yahoo.com	5	10
-149	nimeshanishadi@yahoo.com	4	9
-150	nimeshanishadi@yahoo.com	5	8
-151	nimeshanishadi@yahoo.com	5	3
-152	nimeshanishadi@yahoo.com	5	2
-153	miller_tamil@live.com	5	17
-154	kasund@wso2.com	5	16
-155	osilva@virtusa.com	3	16
-156	kasund@wso2.com	5	17
-157	osilva@virtusa.com	4	17
-158	hsbathiya@gmail.com	5	20
-159	dilini@wso2.com	5	20
-160	seshika@wso2.com	4	20
-161	thamayanthy@wso2.com	5	22
-162	thamayanthy@wso2.com	5	20
-163	thamayanthy@wso2.com	5	2
-164	thamayanthy@wso2.com	5	3
-165	thamayanthy@wso2.com	5	8
-166	thamayanthy@wso2.com	5	8
-167	thamayanthy@wso2.com	5	8
-168	thamayanthy@wso2.com	5	9
-169	thamayanthy@wso2.com	5	10
-170	thamayanthy@wso2.com	5	4
-171	thamayanthy@wso2.com	5	13
-172	thamayanthy@wso2.com	5	4
-173	thamayanthy@wso2.com	5	14
-174	thamayanthy@wso2.com	5	14
-175	thamayanthy@wso2.com	5	5
-176	thamayanthy@wso2.com	5	15
-177	thamayanthy@wso2.com	5	16
-178	thamayanthy@wso2.com	5	17
-179	thamayanthy@wso2.com	5	17
-180	thamayanthy@wso2.com	5	10
-181	thamayanthy@wso2.com	5	40
-182	thamayanthy@wso2.com	5	45
-183	kelumg@brandix.com	5	22
-184	kelumg@brandix.com	5	20
-185	miller_tamil@live.com	5	22
-186	osilva@virtusa.com	4	20
-187	osilva@virtusa.com	5	22
-188	osilva@virtusa.com	4	22
-189	kasund@wso2.com	4	20
-190	manjula72@gmail.com	5	22
-191	thushera@virtusa.com	4	20
-192	thushera@virtusa.com	5	22
-193	miller_tamil@live.com	5	24
-194	kasund@wso2.com	5	24
-195	miller_tamil@live.com	5	25
-196	miller_tamil@live.com	4	6
-197	thamayanthy@wso2.com	5	25
-198	thamayanthy@wso2.com	5	6
-199	thamayanthy@wso2.com	5	24
-200	thamayanthy@wso2.com	5	20
-201	thamayanthy@wso2.com	5	22
-202	kasund@wso2.com	5	25
-203	crishanthan@icta.lk	4	20
-204	crishanthan@icta.lk	3	22
-205	seshika@wso2.com	4	25
-206	crishanthan@icta.lk	4	24
-207	crishanthan@icta.lk	4	6
-208	crishanthan@icta.lk	2	25
-209	crishanthan@icta.lk	1	36
-210	crishanthan@icta.lk	2	43
-211	sanka.11@cse.mrt.ac.lk	5	6
-212	sanka.11@cse.mrt.ac.lk	5	25
-213	sanka.11@cse.mrt.ac.lk	3	24
-214	sanka.11@cse.mrt.ac.lk	4	24
-215	anjana@wso2.com	5	25
-216	kasund@wso2.com	4	29
-217	sajithr@wso2.com	5	25
-218	sajithr@wso2.com	4	6
-219	sajithr@wso2.com	4	29
-220	sajithr@wso2.com	5	24
-221	sajithr@wso2.com	5	13
-222	sajithr@wso2.com	4	5
-223	sajithr@wso2.com	5	5
-224	sajithr@wso2.com	5	17
-225	sajithr@wso2.com	5	2
-226	anjana@wso2.com	5	30
-227	dumidu@wso2.com	4	10
-228	dumidu@wso2.com	4	14
-229	dumidu@wso2.com	5	17
-230	dumidu@wso2.com	4	2
-231	dumidu@wso2.com	5	2
-232	dumidu@wso2.com	4	3
-233	anjana@wso2.com	5	4
-234	kasund@wso2.com	5	31
-235	kasund@wso2.com	4	30
-236	anjana@wso2.com	5	25
-237	crishanthan@icta.lk	3	31
-238	crishanthan@icta.lk	3	30
-239	crishanthan@icta.lk	4	29
-240	dumidu@wso2.com	4	13
-241	aparna@wso2.com	4	29
-242	aparna@wso2.com	4	30
-243	aparna@wso2.com	4	31
-244	aparna@wso2.com	4	25
-245	aparna@wso2.com	4	2
-246	aparna@wso2.com	4	3
-247	aparna@wso2.com	4	8
-248	aparna@wso2.com	4	10
-249	thamayanthy@wso2.com	4	33
-250	thamayanthy@wso2.com	5	33
-251	aparna@wso2.com	4	16
-252	kasund@wso2.com	5	33
-253	thanuja@wso2.com	5	13
-254	thamayanthy@wso2.com	5	46
-255	thamayanthy@wso2.com	5	46
-256	crishanthan@icta.lk	5	46
-257	crishanthan@icta.lk	1	33
-258	crishanthan@icta.lk	3	31
-259	isurup@wso2.com	5	46
-260	isurup@wso2.com	5	15
-261	gayank@wso2.com	5	37
-262	gayank@wso2.com	5	42
++---------------------------+--------+--------------------------------------------------------------------------------------------------------+
+| userName                  | points | title                                                                                                  |
++---------------------------+--------+--------------------------------------------------------------------------------------------------------+
+| kasund@wso2.com           |      3 | Opening Keynote                                                                                        |
+| hsbathiya@gmail.com       |      4 | Opening Keynote                                                                                        |
+| sanka.11@cse.mrt.ac.lk    |      5 | Opening Keynote                                                                                        |
+| seshika@wso2.com          |      4 | Opening Keynote                                                                                        |
+| sanka.11@cse.mrt.ac.lk    |      5 | Opening Keynote                                                                                        |
+| nimeshanishadi@yahoo.com  |      5 | Opening Keynote                                                                                        |
+| sahanm@mobitel.lk         |      5 | Opening Keynote                                                                                        |
+| kelumg@brandix.com        |      5 | Opening Keynote                                                                                        |
+| osilva@virtusa.com        |      5 | Opening Keynote                                                                                        |
+| dayanbandula@gmail.com    |      2 | Opening Keynote                                                                                        |
+| dayanbandula@gmail.com    |      4 | Opening Keynote                                                                                        |
+| dayanbandula@gmail.com    |      3 | Opening Keynote                                                                                        |
+| thushera@virtusa.com      |      4 | Opening Keynote                                                                                        |
+| crishanthan@icta.lk       |      4 | Opening Keynote                                                                                        |
+| nimeshanishadi@yahoo.com  |      5 | Opening Keynote                                                                                        |
+| thamayanthy@wso2.com      |      5 | Opening Keynote                                                                                        |
+| sajithr@wso2.com          |      5 | Opening Keynote                                                                                        |
+| dumidu@wso2.com           |      4 | Opening Keynote                                                                                        |
+| dumidu@wso2.com           |      5 | Opening Keynote                                                                                        |
+| aparna@wso2.com           |      4 | Opening Keynote                                                                                        |
+| kasund@wso2.com           |      2 | Keynote: Exploiting the Digital Storm                                                                  |
+| kasund@wso2.com           |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| miller_tamil@live.com     |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| nimeshanishadi@yahoo.com  |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| nimeshanishadi@yahoo.com  |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| seshika@wso2.com          |      3 | Keynote: Exploiting the Digital Storm                                                                  |
+| sanka.11@cse.mrt.ac.lk    |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| kasund@wso2.com           |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| sahanm@mobitel.lk         |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| kelumg@brandix.com        |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| osilva@virtusa.com        |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| osilva@virtusa.com        |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| wasim_ayoubi@yahoo.com    |      3 | Keynote: Exploiting the Digital Storm                                                                  |
+| wasim_ayoubi@yahoo.com    |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| miller_tamil@live.com     |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| osilva@virtusa.com        |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| dayanbandula@gmail.com    |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| wasim_ayoubi@yahoo.com    |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| wso2conasia               |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| hsbathiya@gmail.com       |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| nimeshanishadi@yahoo.com  |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| thamayanthy@wso2.com      |      5 | Keynote: Exploiting the Digital Storm                                                                  |
+| dumidu@wso2.com           |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| aparna@wso2.com           |      4 | Keynote: Exploiting the Digital Storm                                                                  |
+| kasund@wso2.com           |      4 | Governance: Bread and Butter of a Connected Business                                                   |
+| kasund@wso2.com           |      4 | Governance: Bread and Butter of a Connected Business                                                   |
+| kelumg@brandix.com        |      5 | Governance: Bread and Butter of a Connected Business                                                   |
+| seshika@wso2.com          |      3 | Governance: Bread and Butter of a Connected Business                                                   |
+| osilva@virtusa.com        |      4 | Governance: Bread and Butter of a Connected Business                                                   |
+| sanka.11@cse.mrt.ac.lk    |      4 | Governance: Bread and Butter of a Connected Business                                                   |
+| thushera@virtusa.com      |      3 | Governance: Bread and Butter of a Connected Business                                                   |
+| crishanthan@icta.lk       |      4 | Governance: Bread and Butter of a Connected Business                                                   |
+| nimeshanishadi@yahoo.com  |      5 | Governance: Bread and Butter of a Connected Business                                                   |
+| thamayanthy@wso2.com      |      5 | Governance: Bread and Butter of a Connected Business                                                   |
+| thamayanthy@wso2.com      |      5 | Governance: Bread and Butter of a Connected Business                                                   |
+| anjana@wso2.com           |      5 | Governance: Bread and Butter of a Connected Business                                                   |
+| miller_tamil@live.com     |      5 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| kasund@wso2.com           |      4 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| crishanthan@icta.lk       |      4 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| osilva@virtusa.com        |      4 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| nimeshanishadi@yahoo.com  |      4 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| thamayanthy@wso2.com      |      5 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| sajithr@wso2.com          |      4 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| sajithr@wso2.com          |      5 | Embracing BYOD Trend Without Compromising Security, Employee Privacy, or the Mobile Experience         |
+| miller_tamil@live.com     |      4 | WSO2 AppDev Platform for the Connected Business                                                        |
+| thamayanthy@wso2.com      |      5 | WSO2 AppDev Platform for the Connected Business                                                        |
+| crishanthan@icta.lk       |      4 | WSO2 AppDev Platform for the Connected Business                                                        |
+| sanka.11@cse.mrt.ac.lk    |      5 | WSO2 AppDev Platform for the Connected Business                                                        |
+| sajithr@wso2.com          |      4 | WSO2 AppDev Platform for the Connected Business                                                        |
+| kasund@wso2.com           |      2 | Reinventing Enterprise Integration for Connected Business                                              |
+| kasund@wso2.com           |      2 | Reinventing Enterprise Integration for Connected Business                                              |
+| kelumg@brandix.com        |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| sanka.11@cse.mrt.ac.lk    |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| sahanm@mobitel.lk         |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| sudheera@wso2.com         |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| kasund@wso2.com           |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| sudheera@wso2.com         |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| wasim_ayoubi@yahoo.com    |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| seshika@wso2.com          |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| osilva@virtusa.com        |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| miller_tamil@live.com     |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| dayanbandula@gmail.com    |      3 | Reinventing Enterprise Integration for Connected Business                                              |
+| wasim_ayoubi@yahoo.com    |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| wenod@wso2.com            |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| hsbathiya@gmail.com       |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| thushera@virtusa.com      |      3 | Reinventing Enterprise Integration for Connected Business                                              |
+| nimeshanishadi@yahoo.com  |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| thamayanthy@wso2.com      |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| thamayanthy@wso2.com      |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| thamayanthy@wso2.com      |      5 | Reinventing Enterprise Integration for Connected Business                                              |
+| aparna@wso2.com           |      4 | Reinventing Enterprise Integration for Connected Business                                              |
+| kasund@wso2.com           |      2 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| miller_tamil@live.com     |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| dayanbandula@gmail.com    |      2 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| kasund@wso2.com           |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| wasim_ayoubi@yahoo.com    |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| wasim_ayoubi@yahoo.com    |      3 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| wenod@wso2.com            |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| chamil@wso2.com           |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| osilva@virtusa.com        |      3 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| sanka.11@cse.mrt.ac.lk    |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| hsbathiya@gmail.com       |      5 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| niranjan@wso2.com         |      5 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| thushera@virtusa.com      |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| nimeshanishadi@yahoo.com  |      4 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| thamayanthy@wso2.com      |      5 | Federated Asset Management with WSO2 Enterprise Store                                                  |
+| kasund@wso2.com           |      5 | Building the API-Centric Enterprise                                                                    |
+| kelumg@brandix.com        |      5 | Building the API-Centric Enterprise                                                                    |
+| osilva@virtusa.com        |      4 | Building the API-Centric Enterprise                                                                    |
+| wso2conasia               |      5 | Building the API-Centric Enterprise                                                                    |
+| osilva@virtusa.com        |      4 | Building the API-Centric Enterprise                                                                    |
+| sanka.11@cse.mrt.ac.lk    |      5 | Building the API-Centric Enterprise                                                                    |
+| hsbathiya@gmail.com       |      5 | Building the API-Centric Enterprise                                                                    |
+| niranjan@wso2.com         |      5 | Building the API-Centric Enterprise                                                                    |
+| thushera@virtusa.com      |      3 | Building the API-Centric Enterprise                                                                    |
+| nimeshanishadi@yahoo.com  |      5 | Building the API-Centric Enterprise                                                                    |
+| thamayanthy@wso2.com      |      5 | Building the API-Centric Enterprise                                                                    |
+| thamayanthy@wso2.com      |      5 | Building the API-Centric Enterprise                                                                    |
+| dumidu@wso2.com           |      4 | Building the API-Centric Enterprise                                                                    |
+| aparna@wso2.com           |      4 | Building the API-Centric Enterprise                                                                    |
+| kasund@wso2.com           |      3 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| kelumg@brandix.com        |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| rajitha@wso2.com          |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| sanka.11@cse.mrt.ac.lk    |      4 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| kasund@wso2.com           |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| thushera@virtusa.com      |      2 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| manjula72@gmail.com       |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| wenod@wso2.com            |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| miller_tamil@live.com     |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| osilva@virtusa.com        |      4 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| sahanm@mobitel.lk         |      4 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| crishanthan@icta.lk       |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| nimeshanishadi@yahoo.com  |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| thamayanthy@wso2.com      |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| sajithr@wso2.com          |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| dumidu@wso2.com           |      4 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| thanuja@wso2.com          |      5 | Bring Your Own IDentity (BYOID) Benefits and Challenges                                                |
+| thushera@virtusa.com      |      2 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| kasund@wso2.com           |      4 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| thushera@virtusa.com      |      2 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| miller_tamil@live.com     |      5 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| osilva@virtusa.com        |      2 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| crishanthan@icta.lk       |      4 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| nimeshanishadi@yahoo.com  |      4 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| thamayanthy@wso2.com      |      5 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| thamayanthy@wso2.com      |      5 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| dumidu@wso2.com           |      4 | Simultaneous Analysis of Massive Data Streams in Real-Time and Batch                                   |
+| crishanthan@icta.lk       |      3 | Essential Elements of an Enterprise PaaS                                                               |
+| osilva@virtusa.com        |      3 | Essential Elements of an Enterprise PaaS                                                               |
+| kasund@wso2.com           |      4 | Essential Elements of an Enterprise PaaS                                                               |
+| nimeshanishadi@yahoo.com  |      3 | Essential Elements of an Enterprise PaaS                                                               |
+| thamayanthy@wso2.com      |      5 | Essential Elements of an Enterprise PaaS                                                               |
+| isurup@wso2.com           |      5 | Essential Elements of an Enterprise PaaS                                                               |
+| nimeshanishadi@yahoo.com  |      5 | How WSO2 Cloud Accelerates Development                                                                 |
+| kasund@wso2.com           |      5 | How WSO2 Cloud Accelerates Development                                                                 |
+| osilva@virtusa.com        |      3 | How WSO2 Cloud Accelerates Development                                                                 |
+| thamayanthy@wso2.com      |      5 | How WSO2 Cloud Accelerates Development                                                                 |
+| aparna@wso2.com           |      4 | How WSO2 Cloud Accelerates Development                                                                 |
+| nimeshanishadi@yahoo.com  |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| miller_tamil@live.com     |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| kasund@wso2.com           |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| osilva@virtusa.com        |      4 | Accelerating Mobile App Development with MBaaS                                                         |
+| thamayanthy@wso2.com      |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| thamayanthy@wso2.com      |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| sajithr@wso2.com          |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| dumidu@wso2.com           |      5 | Accelerating Mobile App Development with MBaaS                                                         |
+| hsbathiya@gmail.com       |      5 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| dilini@wso2.com           |      5 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| seshika@wso2.com          |      4 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| thamayanthy@wso2.com      |      5 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| kelumg@brandix.com        |      5 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| osilva@virtusa.com        |      4 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| kasund@wso2.com           |      4 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| thushera@virtusa.com      |      4 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| thamayanthy@wso2.com      |      5 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| crishanthan@icta.lk       |      4 | Keynote: Connected Business and the API Economy: Challenges & Opportunities                            |
+| thamayanthy@wso2.com      |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| kelumg@brandix.com        |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| miller_tamil@live.com     |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| osilva@virtusa.com        |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| osilva@virtusa.com        |      4 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| manjula72@gmail.com       |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| thushera@virtusa.com      |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| thamayanthy@wso2.com      |      5 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| crishanthan@icta.lk       |      3 | Keynote: Delivering New Millennial Experiences Through a Connected Business                            |
+| miller_tamil@live.com     |      5 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| kasund@wso2.com           |      5 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| thamayanthy@wso2.com      |      5 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| crishanthan@icta.lk       |      4 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| sanka.11@cse.mrt.ac.lk    |      3 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| sanka.11@cse.mrt.ac.lk    |      4 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| sajithr@wso2.com          |      5 | Increasing Development Velocity with the WSO2 Tooling Platform                                         |
+| miller_tamil@live.com     |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| thamayanthy@wso2.com      |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| kasund@wso2.com           |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| seshika@wso2.com          |      4 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| crishanthan@icta.lk       |      2 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| sanka.11@cse.mrt.ac.lk    |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| anjana@wso2.com           |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| sajithr@wso2.com          |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| anjana@wso2.com           |      5 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| aparna@wso2.com           |      4 | Accelerating Mobile Development with Mobile Enterprise Application Platforms (MEAP)                    |
+| kasund@wso2.com           |      4 | Effective Test Automation in an Agile Environment                                                      |
+| sajithr@wso2.com          |      4 | Effective Test Automation in an Agile Environment                                                      |
+| crishanthan@icta.lk       |      4 | Effective Test Automation in an Agile Environment                                                      |
+| aparna@wso2.com           |      4 | Effective Test Automation in an Agile Environment                                                      |
+| anjana@wso2.com           |      5 | Agile DevOps in the Cloud                                                                              |
+| kasund@wso2.com           |      4 | Agile DevOps in the Cloud                                                                              |
+| crishanthan@icta.lk       |      3 | Agile DevOps in the Cloud                                                                              |
+| aparna@wso2.com           |      4 | Agile DevOps in the Cloud                                                                              |
+| kasund@wso2.com           |      5 | Nurturing Applications in a Connected Enterprise                                                       |
+| crishanthan@icta.lk       |      3 | Nurturing Applications in a Connected Enterprise                                                       |
+| aparna@wso2.com           |      4 | Nurturing Applications in a Connected Enterprise                                                       |
+| crishanthan@icta.lk       |      3 | Nurturing Applications in a Connected Enterprise                                                       |
+| thamayanthy@wso2.com      |      4 | Panel Discussion: Building a Connected Ecosystem                                                       |
+| thamayanthy@wso2.com      |      5 | Panel Discussion: Building a Connected Ecosystem                                                       |
+| kasund@wso2.com           |      5 | Panel Discussion: Building a Connected Ecosystem                                                       |
+| crishanthan@icta.lk       |      1 | Panel Discussion: Building a Connected Ecosystem                                                       |
+| supun.nakandala@gmail.com |      5 | Turning Events and Big Data into Insight with WSO2 CEP and WSO2 BAM                                    |
+| crishanthan@icta.lk       |      1 | Turning Events and Big Data into Insight with WSO2 CEP and WSO2 BAM                                    |
+| dumidu@wso2.com           |      4 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| supun.nakandala@gmail.com |      5 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| me@ayomaonline.com        |      4 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| me@ayomaonline.com        |      5 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| me@ayomaonline.com        |      5 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| sahanm@mobitel.lk         |      4 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| gayank@wso2.com           |      5 | Rapidly Building Enterprise Apps, APIs, and Services with WSO2 Developer Studio                        |
+| sudheera@wso2.com         |      5 | Advancing Integration Competency and Excellence with the WSO2 Integration Platform                     |
+| niranjan@wso2.com         |      5 | Advancing Integration Competency and Excellence with the WSO2 Integration Platform                     |
+| thushera@virtusa.com      |      4 | Advancing Integration Competency and Excellence with the WSO2 Integration Platform                     |
+| dumidu@wso2.com           |      5 | Reducing the Operations Burden and Increasing QoS; WSO2 Platform Management and Administration Tactics |
+| sanka.11@cse.mrt.ac.lk    |      5 | Javascript Everywhere: Backend to Web and Mobile Apps in Javascript                                    |
+| nifrasismail@gmail.com    |      4 | Javascript Everywhere: Backend to Web and Mobile Apps in Javascript                                    |
+| nifrasismail@gmail.com    |      5 | Javascript Everywhere: Backend to Web and Mobile Apps in Javascript                                    |
+| manjula72@gmail.com       |      5 | Javascript Everywhere: Backend to Web and Mobile Apps in Javascript                                    |
+| thamayanthy@wso2.com      |      5 | Javascript Everywhere: Backend to Web and Mobile Apps in Javascript                                    |
+| thushera@virtusa.com      |      3 | Defining a Pragmatic and Practical SOA Focused Enterprise Architecture                                 |
+| supun.nakandala@gmail.com |      5 | Managing Enterprise Mobile Devices and Delivering Enterprise Mobile Applications                       |
+| nifrasismail@gmail.com    |      2 | Managing Enterprise Mobile Devices and Delivering Enterprise Mobile Applications                       |
+| nifrasismail@gmail.com    |      2 | Managing Enterprise Mobile Devices and Delivering Enterprise Mobile Applications                       |
+| dayanbandula@gmail.com    |      4 | Managing Enterprise Mobile Devices and Delivering Enterprise Mobile Applications                       |
+| gayank@wso2.com           |      5 | Managing Enterprise Mobile Devices and Delivering Enterprise Mobile Applications                       |
+| maduranga@wso2.com        |      4 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| maduranga@wso2.com        |      5 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| pubudud@wso2.com          |      5 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| supun.nakandala@gmail.com |      5 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| hsbathiya@gmail.com       |      4 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| dayanbandula@gmail.com    |      2 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| crishanthan@icta.lk       |      2 | Comprehensive Cloud Strategy for Enterprises - Apache Stratos, WSO2 Private PaaS and WSO2 App Factory  |
+| osilva@virtusa.com        |      4 | API Management Jumpstart: Five Actions to Take                                                         |
+| sanka.11@cse.mrt.ac.lk    |      4 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| osilva@virtusa.com        |      2 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| manjula72@gmail.com       |      5 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| manjula72@gmail.com       |      5 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| hsbathiya@gmail.com       |      3 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| hsbathiya@gmail.com       |      4 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| sahanm@mobitel.lk         |      5 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| thamayanthy@wso2.com      |      5 | Security and Identity for the Cloud, API, and Mobile World                                             |
+| thamayanthy@wso2.com      |      5 | Keynote: Complete Your Corporate Jigsaw - Build a Connected Business                                   |
+| thamayanthy@wso2.com      |      5 | Keynote: Complete Your Corporate Jigsaw - Build a Connected Business                                   |
+| crishanthan@icta.lk       |      5 | Keynote: Complete Your Corporate Jigsaw - Build a Connected Business                                   |
+| isurup@wso2.com           |      5 | Keynote: Complete Your Corporate Jigsaw - Build a Connected Business                                   |
++---------------------------+--------+--------------------------------------------------------------------------------------------------------+
