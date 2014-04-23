@@ -61,9 +61,9 @@ var deleteEvent = function (eventId) {
 var getEventByEventId = function (eventId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
-        'TRIM(te.title)  AS title,' +
+        'CONVERT(te.title USING ascii) AS title,' +
         'CONVERT(te.description USING ascii) AS description,' +
-        'TRIM(te.venue) AS venue,' +
+        'CONVERT(te.venue USING ascii) AS venue,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %h:%i %p\') AS fromDateTime,' +
         'DATE_FORMAT(te.toDateTime, \'%Y-%m-%d %h:%i %p\') AS toDateTime,' +
         'te.isCrossTrack AS isCrossTrack ' +
