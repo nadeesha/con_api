@@ -112,9 +112,9 @@ var getEventByEventIdWithSpekers = function (eventId) {
 var getAllEventByTrack = function (agendId, trackId) {
     var result = db.query('SELECT ' +
         'te.id AS id,' +
-        'TRIM(te.title)  AS title,' +
+        'CONVERT(te.title USING ascii)  AS title,' +
         'CONVERT(te.description USING ascii) AS description,' +
-        'TRIM(te.venue) AS venue,' +
+        'CONVERT(te.venue USING ascii) AS venue,' +
         'te.eventTypeId AS eventTypeId,' +
         'te.eventCategoryId AS eventCategoryId,' +
         'DATE_FORMAT(te.fromDateTime, \'%Y-%m-%d %H:%i:%s\') AS fromDateTime,' +
